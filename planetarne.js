@@ -113,8 +113,8 @@ var tabela99;
 function start(){
 	if(stop === false && tabela99.includes(gk))
 	{
-		 if(parseInt($('#clan_war_cnt').text()) < 5 && GAME.server==16){
-				GAME.emitOrder({a:39,type:24,shorts:"TAKA;HCM;LALA;AFK;LOL"});
+		 if(parseInt($('#clan_war_cnt').text()) < 4 && GAME.server==16){
+				GAME.emitOrder({a:39,type:24,shorts:"TAKA;LALA;AFK;LOL"});
 			}
 			 if(parseInt($('#clan_war_cnt').text()) < 3 && GAME.server==18){
 				GAME.emitOrder({a:39,type:24,shorts:"lego;Domin;las;sal"});

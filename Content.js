@@ -308,5 +308,4 @@ $('#drag_con').html(con);
 $('#drag_con').removeClass('scroll');
     if (window.localStorage.getItem('hide_tracker')) $(".qtrack").hide();
 }
-}
 GAME.komunikat("Od teraz lista zmian pod klawiszem 0")

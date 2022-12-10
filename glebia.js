@@ -445,9 +445,6 @@ function kill_players(){
     $("#player_list_con").find("[data-option=load_more_players]").click();
 	window.setTimeout(kill_players,150);
 	}
-    else if(licznik==15){
-    window.setTimeout(start,wait);
-    licznik=0;}
         else if(licznik<document.getElementById("player_list_con").childElementCount){
             if(document.getElementById("player_list_con").children[licznik].children[1].children[0].attributes[1].value==="gpvp_attack" || document.getElementById("player_list_con").children[licznik].children[1].children[1].attributes[1].value==="gpvp_attack")
             {

@@ -1,6 +1,6 @@
 	$(document).bind('keydown', '0', function(){
         if(JQS.chm.is(":focus") == false){
-          GAME.komunikat("Legenda: Klawisz 1- start/stop, 2-tp PP, 3-błogo, 4-odbieranie vip, N-zegarki, B-pvp, X-opcja dalej, zamykanie raportów/komunikatów, zbieranie," + "<br>" + "06.12 - poprawa postępu zadań, poprawki omijania fragów na głębi " + "<br>" + "04.12 - poprawiono omijanie fragów w skrypcie na planetarne ")
+          GAME.komunikat("Legenda: Klawisz 1- start/stop, 2-tp PP, 3-błogo, 4-odbieranie vip, N-zegarki, B-pvp, X-opcja dalej, zamykanie raportów/komunikatów, zbieranie" + "<br>" +"10.12 - dalsze poprawki postępu zadań, od teraz zapamiętuje stan postępu zadań w pamięci lokalnej(po schwoaniu i zresetowaniu strony dalej będzie schowane), cofnięcie zmian na głębi + "<br>" + "06.12 - poprawa postępu zadań, poprawki omijania fragów na głębi " + "<br>" + "04.12 - poprawiono omijanie fragów w skrypcie na planetarne ")
         }
         return false;
     });
@@ -274,27 +274,39 @@ GAME.abbreviateNumber = function(number, decPlaces=2) {
     }
     return number;
 }
+   $( "body" ).on( "click", "#quest_track_con", function(){
+            if (!localStorage.getItem('hide_tracker')) {
+                localStorage.setItem('hide_tracker',true);
+                $(".qtrack").hide();
+            } else {
+                localStorage.removeItem('hide_tracker');
+                $(".qtrack").show();
+            }
+        });
+$('#drag_tracker').on('click').on('click',function() {
+	if($('#drag_con').hasClass('scroll'))
+	{
+		$('#drag_con').removeClass('scroll');
+	}
+});
 GAME.parseTracker = function(track){
-	GAME.socket.emit('ga',{a:22,type:3}); // ŁADOWANIE DZIENNIKA ZADAŃ
-    var con='';
-	if (track&&track.length) {
+	var con='';
+	var any=false;
+	if(track&&track.length){
 		var len=track.length;
-		con+='<div class="sekcja" id="drag_tracker">'+LNG.lab181+'</div><div id="drag_con" class="scroll">';
-
-		for (var i=0;i<len;i++) {
+		//con+='<div class="sekcja" id="drag_tracker">'+LNG.lab181+'</div><div id="drag_con" class="scroll">';
+		for(var i=0;i<len;i++){
+			any=true;
 			var qn=track[i].header;
 			if(qn.length>15) qn=qn.slice(0,15)+'...';
-			  con+='<div id="track_quest_'+track[i].qb_id+'" class="qtrack"><div class="sep'+(track[i].m==1?3:2)+'"></div><b>'+qn+'</b> '+this.quest_want(track[i].want,track[i].qb_id)+'</div>';
+			con+='<div id="track_quest_'+track[i].qb_id+'" class="qtrack"><div class="sep'+(track[i].m==1?3:2)+'"></div><b>'+qn+'</b> '+this.quest_want(track[i].want,track[i].qb_id)+'</div>';
 		}
 	}
-	con+='</div><div class="clr"></div>';
-	$('#quest_track_con').html(con);
-	$('#drag_tracker').off('click').on('click',function() {
-		if ($('#drag_con').hasClass('scroll')) {
-            $('#drag_con').removeClass('scroll');
-		} else $('#drag_con').addClass('scroll');
-    });
-
+	
+	//con+='</div><div class="clr"></div>';
+$('#drag_con').html(con);
 $('#drag_con').removeClass('scroll');
+    if (window.localStorage.getItem('hide_tracker')) $(".qtrack").hide();
+}
 }
 GAME.komunikat("Od teraz lista zmian pod klawiszem 0")

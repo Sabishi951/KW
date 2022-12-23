@@ -116,6 +116,9 @@ function start(){
 		 if(parseInt($('#clan_war_cnt').text()) < 4 && GAME.server==16){
 				GAME.emitOrder({a:39,type:24,shorts:"TAKA;LALA;AFK;LOL"});
 			}
+			if(parseInt($('#clan_war_cnt').text()) < 8 && GAME.server==17){
+				GAME.emitOrder({a:39,type:24,shorts:"ABCA;BTL;SSJ;FaH;Super;ESP;DEST;NAS;SDS"});
+			}
 			 if(parseInt($('#clan_war_cnt').text()) < 3 && GAME.server==18){
 				GAME.emitOrder({a:39,type:24,shorts:"lego;Domin;las;sal"});
 			}

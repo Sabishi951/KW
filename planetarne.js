@@ -119,8 +119,8 @@ function start(){
 			if(parseInt($('#clan_war_cnt').text()) < 8 && GAME.server==17){
 				GAME.emitOrder({a:39,type:24,shorts:"ABCA;BTL;SSJ;FaH;Super;ESP;DEST;NAS;SDS"});
 			}
-			 if(parseInt($('#clan_war_cnt').text()) < 3 && GAME.server==18){
-				GAME.emitOrder({a:39,type:24,shorts:"lego;Domin;las;sal"});
+			 if(parseInt($('#clan_war_cnt').text()) < 5 && GAME.server==18){
+				GAME.emitOrder({a:39,type:24,shorts:"lego;Domin;las;jad;sal"});
 			}
 	 if(parseInt($('#clan_war_cnt').text()) < 25 && GAME.server==1 && GAME.char_data.klan_id==3542 ||  parseInt($('#clan_war_cnt').text()) < 20 && GAME.server==1 && GAME.char_data.klan_id==3434){
     GAME.emitOrder({a:39,type:24,shorts:"fdsfsd;DK;PAKT;ZONG;DEMON;DOME;Legend;FRSPG;Saiyan;UVM;Ramizb;DARK;Shadow;MoOEn;MWars;LWDB;GM;Soul;JSKA;Say;Ssc;ZSCH;BDS;gimme;SSJL;SDS;CORP;PT;ROYALE;LEGION;BSS;BTK;WBB;LORDS;KNIGHT;LSSJ;BHD;ABCDEG;SzMR;GSayan;SKS"});

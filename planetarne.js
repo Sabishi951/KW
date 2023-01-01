@@ -290,7 +290,7 @@ function check_players(){
 		tabb=document.getElementById("player_list_con").children[0].children[1].children[0].textContent.split(":");
 	if(document.getElementById("player_list_con").children[0].children[1].childElementCount==3){
 		tabb=document.getElementById("player_list_con").children[0].children[1].children[0].textContent.split(":");
-		if( parseInt(tabb[1])<=0 && y==2 && parseInt(tabb[2])<=30 ||  parseInt(tabb[1])<=0 && y==2){
+		if( parseInt(tabb[1])<=0 && y==2){
 			window.setTimeout(check_players,3000);}
 		else{
 			window.setTimeout(start,wait);}

@@ -113,6 +113,9 @@ var tabela99;
 function start(){
 	if(stop === false && tabela99.includes(gk))
 	{
+		if(parseInt($('#clan_war_cnt').text()) < 1 && GAME.server==19){
+				GAME.emitOrder({a:39,type:24,shorts:"ALP"});
+			}
 		 if(parseInt($('#clan_war_cnt').text()) < 4 && GAME.server==16){
 				GAME.emitOrder({a:39,type:24,shorts:"TAKA;LALA;AFK;LOL"});
 			}
@@ -287,8 +290,8 @@ function check_players(){
 		tabb=document.getElementById("player_list_con").children[0].children[1].children[0].textContent.split(":");
 	if(document.getElementById("player_list_con").children[0].children[1].childElementCount==3){
 		tabb=document.getElementById("player_list_con").children[0].children[1].children[0].textContent.split(":");
-		if( parseInt(tabb[1])<=0 && y==2){
-			window.setTimeout(check_players,1500);}
+		if( parseInt(tabb[1])<=0 && y==2 && parseInt(tabb[2])<=30 ||  parseInt(tabb[1])<=0 && y==2){
+			window.setTimeout(check_players,3000);}
 		else{
 			window.setTimeout(start,wait);}
 		}else{

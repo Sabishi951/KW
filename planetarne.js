@@ -60,9 +60,9 @@ $(document).bind('keydown', '1', function(){
     });
 
 var caseNumber = 0;
-var wait = 8; //chodzenie
+var wait = 10; //chodzenie
 var wait2 =1; //chodzenie
-var czekajpvp=200; //czeka po przejściu
+var czekajpvp=170; //czeka po przejściu
 var licznik=0;
 var antybot=false
 var stop = true;
@@ -283,14 +283,13 @@ function powrot2(){
 	else {window.setTimeout(powrot,waitzagadka);
 	}
 }
-var aa=true;
 function check_players(){
 	if(0<document.getElementById("player_list_con").childElementCount){
 		y = GAME.char_data.y
 		tabb=document.getElementById("player_list_con").children[0].children[1].children[0].textContent.split(":");
 	if(document.getElementById("player_list_con").children[0].children[1].childElementCount==3){
 		tabb=document.getElementById("player_list_con").children[0].children[1].children[0].textContent.split(":");
-		if( parseInt(tabb[1])<=0 && y==2){
+		if( parseInt(tabb[1])<=2 && y==2 && parseInt(tabb[2])<=10 ||  parseInt(tabb[1])<=0 && y==2 || parseInt(tabb[1])<=1 && y==2 && parseInt(tabb[2])<=60){
 			window.setTimeout(check_players,3000);}
 		else{
 			window.setTimeout(start,wait);}
@@ -302,11 +301,11 @@ function check_players(){
 function check_players2(){
 	if(0<document.getElementById("player_list_con").childElementCount){
 		tabb=document.getElementById("player_list_con").children[0].children[1].children[0].textContent.split(":");
-	if( parseInt(tabb[2])<=30 && parseInt(tabb[1])<=0 ){	
-			window.setTimeout(check_players2,1500);}
+	if( parseInt(tabb[2])<=20 && parseInt(tabb[1])<=0 ){	
+			window.setTimeout(check_players2,3000);}
 			else {
-			window.setTimeout(start,150)}
-			}else {window.setTimeout(start,150)
+			window.setTimeout(start,czekajpvp)}
+			}else {window.setTimeout(start,wait)
 	}
 }
 
@@ -314,7 +313,7 @@ function kill_players(){
 	licznikkk=0;
 	if($("#player_list_con").find("[data-option=load_more_players]").length==1){
     $("#player_list_con").find("[data-option=load_more_players]").click();
-	window.setTimeout(kill_players,150);
+	window.setTimeout(kill_players,110);
 	} else {
 	var ll=document.getElementById("player_list_con").childElementCount
    kill_players1();
@@ -454,7 +453,7 @@ function cofanie(){
 	}
 	else{
 	GAME.emitOrder({a:4,dir:7,vo:GAME.map_options.vo});
-window.setTimeout(cofanie,270);
+window.setTimeout(cofanie,150);
 }
 }
 function prawodol(){

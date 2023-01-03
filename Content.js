@@ -5,7 +5,7 @@
         return false;
     });
 
-GAME.emitOrder = (data) => GAME.socket.emit('ga',data);
+GAME.emitOrder = (data) => GAME.socket.emit('ga',data);481568
 var tabela99=[433273,464892,479357,476597,468932,210845,426373,393700,449850,433094,462458,291156,342270,479673,481132,220784,395234,322483,480606,458895,460037,318583,479201,356936,480620,463612,481193,345396,426491,480228,463136,481092,47839,472686,441347,336486,443902,471383,462486,448665,479597,472270,307088,467402,479395,466860,481954];
     var freeAssist = document.createElement('button');
     freeAssist.innerHTML = "ASYSTUJ WSZYSTKIM ZA DARMO"
@@ -135,18 +135,18 @@ if($("#player_list_con").find("[data-option=load_more_players]").length==1){
     $("#player_list_con").find("[data-option=load_more_players]").click();
 	window.setTimeout(kill_players1,110);
 	} else if(parseInt(tabb[1])>=0){
-		window.setTimeout(kill_players1,30);
+		window.setTimeout(kill_players1,55);
 		licznikkk++;
 	}
        else if(licznikkk<document.getElementById("player_list_con").childElementCount){
             if(document.getElementById("player_list_con").children[licznikkk].children[1].children[0].attributes[1].value==="gpvp_attack" || document.getElementById("player_list_con").children[licznikkk].children[1].children[1].attributes[1].value==="gpvp_attack")
             {GAME.emitOrder({a:24,type:1,char_id:document.getElementById("player_list_con").children[licznikkk].children[0].children[1].attributes[2].value,quick:1});
         
-        window.setTimeout(kill_players1,75);
+        window.setTimeout(kill_players1,55);
         }
         else {GAME.emitOrder({a:24,char_id:document.getElementById("player_list_con").children[licznikkk].children[1].children[1].attributes[2].value,quick:1});
         
-        window.setTimeout(kill_players1,75);
+        window.setTimeout(kill_players1,55);
 
         }
         }
@@ -316,8 +316,8 @@ GAME.cached_data = function(){
 	  if(GAME.char_id !=0 && GAME.quick_opts.online_reward){
      setTimeout(() => {
       GAME.socket.emit('ga',{a:26,type:1});
-      setTimeout(() => { $('#daily_reward').fadeOut(); kom_clear();  }, 800);
-       }, 1800);
+      setTimeout(() => { $('#daily_reward').fadeOut(); kom_clear();  }, 200);
+       }, 1500);
   }
 }
 GAME.komunikat("Od teraz lista zmian pod klawiszem 0")

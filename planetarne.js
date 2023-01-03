@@ -60,9 +60,9 @@ $(document).bind('keydown', '1', function(){
     });
 
 var caseNumber = 0;
-var wait = 10; //chodzenie
+var wait = 20; //chodzenie
 var wait2 =1; //chodzenie
-var czekajpvp=170; //czeka po przejściu
+var czekajpvp=200; //czeka po przejściu
 var licznik=0;
 var antybot=false
 var stop = true;
@@ -289,7 +289,7 @@ function check_players(){
 		tabb=document.getElementById("player_list_con").children[0].children[1].children[0].textContent.split(":");
 	if(document.getElementById("player_list_con").children[0].children[1].childElementCount==3){
 		tabb=document.getElementById("player_list_con").children[0].children[1].children[0].textContent.split(":");
-		if( parseInt(tabb[1])<=2 && y==2 && parseInt(tabb[2])<=10 ||  parseInt(tabb[1])<=0 && y==2 || parseInt(tabb[1])<=1 && y==2 && parseInt(tabb[2])<=60){
+		if(parseInt(tabb[1])<=0 && y==2){
 			window.setTimeout(check_players,3000);}
 		else{
 			window.setTimeout(start,wait);}

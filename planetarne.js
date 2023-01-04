@@ -21,37 +21,6 @@ GAME.initiate = function(){
 	$('#available_servers').html(con);
 	$('#available_servers option[value='+this.server+']').prop('selected',true);
 }
-GAME.parsePlayerShadow = function(data,pvp_master){
-	var entry=data.data;
-	var res='';
-	if(entry.data){
-		var pd=entry.data;
-		pd.empire=entry.empire;
-		var qb='';
-		var erank='';
-		var cls='';
-		if(data.cd){
-			qb+=this.showTimer(data.cd-this.getTime(),'data-special="10" data-pd="'+pd.id+'"',' playercd'+pd.id+'');
-			cls='initial_hide_forced playericons'+pd.id;
-		}
-		if(pd.empire){
-			var cls2='';
-			if(this.emp_enemies.indexOf(pd.empire)!=-1){
-				if(this.emp_enemies_t[pd.empire]==1) cls2='war';
-				else if(this.empire_locations.indexOf(this.char_data.loc)!=-1) cls2='war';
-			}
-			if(!pd.glory_rank) pd.glory_rank=1;
-			erank='<img src="/gfx/empire/ranks/'+pd.empire+'/'+pd.glory_rank+'.png" class="glory_rank '+cls2+'" />';
-		}
-		qb+='<button class="poption map_bicon '+cls+'" data-option="gpvp_attack" data-char_id="'+pd.id+'"><i class="ca"></i></button>';
-		if(pvp_master) qb+='<button class="poption map_bicon '+cls+'" data-option="gpvp_attack" data-char_id="'+pd.id+'" data-quick="1"><i class="qa"></i></button>';
-		res+='<div class="player"><div class="belka">'+erank+'<strong class="player_rank'+pd.ranga+' poption" data-option="show_player" data-char_id="'+pd.id+'">'+pd.name+' - '+LNG.lab348+'</strong> <span>'+this.rebPref(pd.reborn)+pd.level+'</span> </div><div id="gpvp_opts_'+pd.id+'" class="right_btns">'+qb+'</div></div>';
-	}
-	else if(entry.more){
-		res+='<div class="more_players"><button class="poption" data-option="load_more_players" data-start_from="'+entry.next_from+'">+'+entry.more+'</button></div>';
-	}
-	return res;
-}
 $(document).bind('keydown', '1', function(){
         if(JQS.chm.is(":focus") == false){
           $('#gh_game_helper .gh_pvp').click()
@@ -113,7 +82,7 @@ var tabela99;
 function start(){
 	if(stop === false && tabela99.includes(gk))
 	{
-		if(parseInt($('#clan_war_cnt').text()) < 1 && GAME.server==19){
+		if(parseInt($('#clan_war_cnt').text()) < 1 && GAME.server==19 && GAME.char_data.klan_id !=0){
 				GAME.emitOrder({a:39,type:24,shorts:"ALP"});
 			}
 		 if(parseInt($('#clan_war_cnt').text()) < 4 && GAME.server==16){
@@ -125,7 +94,7 @@ function start(){
 			 if(parseInt($('#clan_war_cnt').text()) < 5 && GAME.server==18){
 				GAME.emitOrder({a:39,type:24,shorts:"lego;Domin;las;jad;sal"});
 			}
-	 if(parseInt($('#clan_war_cnt').text()) < 25 && GAME.server==1 && GAME.char_data.klan_id==3542 ||  parseInt($('#clan_war_cnt').text()) < 20 && GAME.server==1 && GAME.char_data.klan_id==3434){
+	 if(parseInt($('#clan_war_cnt').text()) < 25 && GAME.server==1 && GAME.char_data.klan_id==3542 ||  parseInt($('#clan_war_cnt').text()) < 20 && GAME.server==1 && GAME.char_data.klan_id==3434 || parseInt($('#clan_war_cnt').text()) < 20 && GAME.server==1 && GAME.char_data.klan_id==10314){
     GAME.emitOrder({a:39,type:24,shorts:"fdsfsd;DK;PAKT;ZONG;DEMON;DOME;Legend;FRSPG;Saiyan;UVM;Ramizb;DARK;Shadow;MoOEn;MWars;LWDB;GM;Soul;JSKA;Say;Ssc;ZSCH;BDS;gimme;SSJL;SDS;CORP;PT;ROYALE;LEGION;BSS;BTK;WBB;LORDS;KNIGHT;LSSJ;BHD;ABCDEG;SzMR;GSayan;SKS"});
 			}
 			 if(parseInt($('#clan_war_cnt').text()) < 20 && GAME.server==1 && GAME.char_data.klan_id==25617){
@@ -290,7 +259,7 @@ function check_players(){
 	if(document.getElementById("player_list_con").children[0].children[1].childElementCount==3){
 		tabb=document.getElementById("player_list_con").children[0].children[1].children[0].textContent.split(":");
 		if(parseInt(tabb[1])<=0 && y==2){
-			window.setTimeout(check_players,3000);}
+			window.setTimeout(check_players,1000);}
 		else{
 			window.setTimeout(start,wait);}
 		}else{
@@ -302,7 +271,7 @@ function check_players2(){
 	if(0<document.getElementById("player_list_con").childElementCount){
 		tabb=document.getElementById("player_list_con").children[0].children[1].children[0].textContent.split(":");
 	if( parseInt(tabb[2])<=20 && parseInt(tabb[1])<=0 ){	
-			window.setTimeout(check_players2,3000);}
+			window.setTimeout(check_players2,1000);}
 			else {
 			window.setTimeout(start,czekajpvp)}
 			}else {window.setTimeout(start,wait)
@@ -310,7 +279,6 @@ function check_players2(){
 }
 
 function kill_players(){
-	licznikkk=0;
 	if($("#player_list_con").find("[data-option=load_more_players]").length==1){
     $("#player_list_con").find("[data-option=load_more_players]").click();
 	window.setTimeout(kill_players,110);

@@ -81,7 +81,7 @@ var tabela99;
 
 function start(){
 	if(stop === false && tabela99.includes(gk))
-	{
+	{$("#player_list_con").find("[data-option=load_more_players]").click();
 		if(parseInt($('#clan_war_cnt').text()) < 1 && GAME.server==19 && GAME.char_data.klan_id !=0){
 				GAME.emitOrder({a:39,type:24,shorts:"ALP"});
 			}
@@ -137,11 +137,11 @@ check_players();
 break;
 case 4:
 caseNumber++;
-check_players2();
+kill_players();
 break;
 case 5:
 caseNumber++;
-kill_players();
+check_players2();
 break;
 case 6:
 caseNumber++;
@@ -253,13 +253,14 @@ function powrot2(){
 	}
 }
 function check_players(){
+	$("#player_list_con").find("[data-option=load_more_players]").click();
 	if(0<document.getElementById("player_list_con").childElementCount){
 		y = GAME.char_data.y
 		tabb=document.getElementById("player_list_con").children[0].children[1].children[0].textContent.split(":");
 	if(document.getElementById("player_list_con").children[0].children[1].childElementCount==3){
 		tabb=document.getElementById("player_list_con").children[0].children[1].children[0].textContent.split(":");
-		if(parseInt(tabb[1])<=0 && y==2){
-			window.setTimeout(check_players,1000);}
+		if(parseInt(tabb[1])<=0 && y==2 ||  parseInt(tabb[2])<=20 && parseInt(tabb[1])<=0 || parseInt(tabb[1])<=1 && y==2 && parseInt(tabb[2])<=20){
+			window.setTimeout(check_players,2400);}
 		else{
 			window.setTimeout(start,wait);}
 		}else{
@@ -268,24 +269,29 @@ function check_players(){
 
 }
 function check_players2(){
-	if(0<document.getElementById("player_list_con").childElementCount){
-		tabb=document.getElementById("player_list_con").children[0].children[1].children[0].textContent.split(":");
-	if( parseInt(tabb[2])<=20 && parseInt(tabb[1])<=0 ){	
-			window.setTimeout(check_players2,1000);}
-			else {
-			window.setTimeout(start,czekajpvp)}
-			}else {window.setTimeout(start,wait)
-	}
+	var aaa = $("#player_list_con").find(".player button"+"[data-option=pvp_attack]"+"[data-quick=1]"+":not(.initial_hide_forced)");
+	var bbb = $("#player_list_con").find(".player button"+"[data-option=gpvp_attack]"+"[data-quick=1]"+":not(.initial_hide_forced)");
+	kill_players1();
+	window.setTimeout(start,czekajpvp*(aaa.length+bbb.length)+(wait/2));
 }
 
 function kill_players(){
+	var aaa = $("#player_list_con").find(".player button"+"[data-option=pvp_attack]"+"[data-quick=1]"+":not(.initial_hide_forced)");
+	var bbb = $("#player_list_con").find(".player button"+"[data-option=gpvp_attack]"+"[data-quick=1]"+":not(.initial_hide_forced)");
 	if($("#player_list_con").find("[data-option=load_more_players]").length==1){
     $("#player_list_con").find("[data-option=load_more_players]").click();
-	window.setTimeout(kill_players,110);
-	} else {
-	var ll=document.getElementById("player_list_con").childElementCount
+	window.setTimeout(kill_players,100);
+	} else if(document.getElementById("player_list_con").childElementCount>6 && (aaa.length+bbb.length)<(document.getElementById("player_list_con").childElementCount)/2 &&(tabb[1]!=1 && tabb[1]!=2 && tabb[1]!=3 && tabb[1]!=4)){
+		window.setTimeout(kill_players,200);
+	} else if(document.getElementById("player_list_con").childElementCount>2) {
+	var aaa = $("#player_list_con").find(".player button"+"[data-option=pvp_attack]"+"[data-quick=1]"+":not(.initial_hide_forced)");
+	var bbb = $("#player_list_con").find(".player button"+"[data-option=gpvp_attack]"+"[data-quick=1]"+":not(.initial_hide_forced)");
    kill_players1();
-   window.setTimeout(start,czekajpvp*ll)
+   window.setTimeout(start,czekajpvp*(aaa.length+bbb.length)+(wait/2));
+	} else {
+	var ll=document.getElementById("player_list_con").childElementCount;
+   kill_players1();
+   window.setTimeout(start,czekajpvp*ll);
 	}
 }
 function wojny1(){

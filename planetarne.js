@@ -281,7 +281,7 @@ function kill_players(){
 	if($("#player_list_con").find("[data-option=load_more_players]").length==1){
     $("#player_list_con").find("[data-option=load_more_players]").click();
 	window.setTimeout(kill_players,100);
-	} else if(document.getElementById("player_list_con").childElementCount>6 && (aaa.length+bbb.length)<(document.getElementById("player_list_con").childElementCount)/2 &&(tabb[1]!=1 && tabb[1]!=2 && tabb[1]!=3 && tabb[1]!=4)){
+	} else if(document.getElementById("player_list_con").childElementCount>6 && (aaa.length+bbb.length)<(document.getElementById("player_list_con").childElementCount)/2 && tabb[1]<1 && tabb[1]!=undefined){
 		window.setTimeout(kill_players,200);
 	} else if(document.getElementById("player_list_con").childElementCount>2) {
 	var aaa = $("#player_list_con").find(".player button"+"[data-option=pvp_attack]"+"[data-quick=1]"+":not(.initial_hide_forced)");

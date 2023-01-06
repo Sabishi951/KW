@@ -92,7 +92,7 @@ function start(){
 				GAME.emitOrder({a:39,type:24,shorts:"ABCA;BTL;SSJ;FaH;Super;ESP;DEST;NAS;SDS"});
 			}
 			 if(parseInt($('#clan_war_cnt').text()) < 5 && GAME.server==18){
-				GAME.emitOrder({a:39,type:24,shorts:"lego;Domin;las;jad;sal"});
+				GAME.emitOrder({a:39,type:24,shorts:"lego;Domin;las;jad;Legion"});
 			}
 	 if(parseInt($('#clan_war_cnt').text()) < 25 && GAME.server==1 && GAME.char_data.klan_id==3542 ||  parseInt($('#clan_war_cnt').text()) < 20 && GAME.server==1 && GAME.char_data.klan_id==3434 || parseInt($('#clan_war_cnt').text()) < 20 && GAME.server==1 && GAME.char_data.klan_id==10314){
     GAME.emitOrder({a:39,type:24,shorts:"fdsfsd;DK;PAKT;ZONG;DEMON;DOME;Legend;FRSPG;Saiyan;UVM;Ramizb;DARK;Shadow;MoOEn;MWars;LWDB;GM;Soul;JSKA;Say;Ssc;ZSCH;BDS;gimme;SSJL;SDS;CORP;PT;ROYALE;LEGION;BSS;BTK;WBB;LORDS;KNIGHT;LSSJ;BHD;ABCDEG;SzMR;GSayan;SKS"});
@@ -281,9 +281,7 @@ function kill_players(){
 	if($("#player_list_con").find("[data-option=load_more_players]").length==1){
     $("#player_list_con").find("[data-option=load_more_players]").click();
 	window.setTimeout(kill_players,100);
-	} else if(document.getElementById("player_list_con").childElementCount>2) {
-	var aaa = $("#player_list_con").find(".player button"+"[data-option=pvp_attack]"+"[data-quick=1]"+":not(.initial_hide_forced)");
-	var bbb = $("#player_list_con").find(".player button"+"[data-option=gpvp_attack]"+"[data-quick=1]"+":not(.initial_hide_forced)");
+	} else if(aaa.length+bbb.length==0) {
    kill_players1();
    window.setTimeout(start,czekajpvp*(aaa.length+bbb.length)+(wait/2));
 	} else {

@@ -272,23 +272,36 @@ function check_players2(){
 	var aaa = $("#player_list_con").find(".player button"+"[data-option=pvp_attack]"+"[data-quick=1]"+":not(.initial_hide_forced)");
 	var bbb = $("#player_list_con").find(".player button"+"[data-option=gpvp_attack]"+"[data-quick=1]"+":not(.initial_hide_forced)");
 	kill_players1();
-	window.setTimeout(start,czekajpvp*(aaa.length+bbb.length)+(wait/2));
+	window.setTimeout(start,czekajpvp*(aaa.length+bbb.length)+(wait));
 }
-
 function kill_players(){
 	var aaa = $("#player_list_con").find(".player button"+"[data-option=pvp_attack]"+"[data-quick=1]"+":not(.initial_hide_forced)");
 	var bbb = $("#player_list_con").find(".player button"+"[data-option=gpvp_attack]"+"[data-quick=1]"+":not(.initial_hide_forced)");
-	if($("#player_list_con").find("[data-option=load_more_players]").length==1){
+  if($("#player_list_con").find("[data-option=load_more_players]").length==1){
     $("#player_list_con").find("[data-option=load_more_players]").click();
-	window.setTimeout(kill_players,100);
-	} else if(aaa.length+bbb.length==0) {
-   kill_players1();
-   window.setTimeout(start,czekajpvp*(aaa.length+bbb.length)+(wait/2));
-	} else {
-	var ll=document.getElementById("player_list_con").childElementCount;
-   kill_players1();
-   window.setTimeout(start,czekajpvp*ll);
+	window.setTimeout(kill_players,150);
 	}
+    else if(aaa.length+bbb.length==0){
+		kill_players1();
+		window.setTimeout(start,czekajpvp*(aaa.length+bbb.length)+(wait));
+	}
+        else if(licznik<document.getElementById("player_list_con").childElementCount){
+            if(document.getElementById("player_list_con").children[licznik].children[1].children[0].attributes[1].value==="gpvp_attack" || document.getElementById("player_list_con").children[licznik].children[1].children[1].attributes[1].value==="gpvp_attack")
+            {
+		GAME.socket.emit('ga', {a:24,type:1,char_id:document.getElementById("player_list_con").children[licznik].children[0].children[1].attributes[2].value,quick:1});
+        licznik++;
+        window.setTimeout(kill_players,czekajpvp);
+        }
+        else {
+		GAME.socket.emit('ga', {a:24,char_id:document.getElementById("player_list_con").children[licznik].children[1].children[1].attributes[2].value,quick:1});
+        licznik++;
+        window.setTimeout(kill_players,czekajpvp);
+
+        }
+        }
+    else {window.setTimeout(start,wait);
+    licznik=0;
+	kom_clear();}
 }
 function wojny1(){
 	if(!GAME.emp_enemies.includes(1) && ![GAME.char_data.empire].includes(1) && adimp){

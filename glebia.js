@@ -30,7 +30,7 @@ $(document).bind('keydown', '1', function(){
 
 
 var caseNumber = 0;
-var wait = 4; //chodzenie
+var wait = 11; //chodzenie
 var wait2 =1; //chodzenie
 var czekajpvp=150; //czeka po przejściu
 var licznik=0;
@@ -103,7 +103,7 @@ var tabela99;
 
 function start(){
 if(stop === false && tabela99.includes(gk))
-{
+{$("#player_list_con").find("[data-option=load_more_players]").click();
     if(GAME.clan_wars.length < 20 && GAME.char_data.klan_id==12){
     GAME.emitOrder({a:39,type:24,shorts:"POWER;QslA;GODS;DESIRE;CONTRA;MMM;Legend;ODR;9uP;Mocarz;CURSED;DIVINE;Senju;9OYAL;aRED;LOST;Nakama;VD;WT;GoS;PSK;devils;Heroes"});
 }
@@ -140,11 +140,11 @@ check_players();
 break;
 case 3:
 caseNumber++;
-check_players2();
+kill_players();
 break;
 case 4:
 caseNumber++;
-kill_players();
+check_players2();
 break;
 case 5:
 caseNumber++;
@@ -270,7 +270,7 @@ function cofanie(){
 	}
 	else{
 	GAME.emitOrder({a:4,dir:6,vo:GAME.map_options.vo});
-window.setTimeout(cofanie,50);
+window.setTimeout(cofanie,100);
 }
 }
 
@@ -282,7 +282,7 @@ function cofanie2(){
 	else{
 	GAME.emitOrder({a:4,dir:2,vo:GAME.map_options.vo});
 	move1=true;
-window.setTimeout(cofanie2,50);
+window.setTimeout(cofanie2,100);
 }
 }
 function prawodol(){
@@ -414,36 +414,38 @@ function powrot2(){
 }
 
 function check_players(){
-	
+	$("#player_list_con").find("[data-option=load_more_players]").click();
 	if(0<document.getElementById("player_list_con").childElementCount){
 		y = GAME.char_data.y
 		tabb=document.getElementById("player_list_con").children[0].children[1].children[0].textContent.split(":");
 	if(document.getElementById("player_list_con").children[0].children[1].childElementCount==3){
 		tabb=document.getElementById("player_list_con").children[0].children[1].children[0].textContent.split(":");
-		if( parseInt(tabb[1])<=1 && y==2){
-			window.setTimeout(check_players,1500);}
+		if(parseInt(tabb[1])<=0 && y==2 ||  parseInt(tabb[2])<=20 && parseInt(tabb[1])<=0){
+			window.setTimeout(check_players,3300);}
 		else{
-			window.setTimeout(start,wait);}
+			window.setTimeout(start,czekajpvp/2);}
 		}else{
-			window.setTimeout(start,wait);}
+			window.setTimeout(start,czekajpvp/2);}
 	}else {window.setTimeout(start,wait);}
 
 }
 function check_players2(){
-	if(0<document.getElementById("player_list_con").childElementCount){
-		tabb=document.getElementById("player_list_con").children[0].children[1].children[0].textContent.split(":");
-	if( parseInt(tabb[2])<=30 && parseInt(tabb[1])<=0 ){	
-			window.setTimeout(check_players2,1500);}
-			else {
-			window.setTimeout(start,czekajpvp)}
-			}else {window.setTimeout(start,wait)
-	}
+	var aaa = $("#player_list_con").find(".player button"+"[data-option=pvp_attack]"+"[data-quick=1]"+":not(.initial_hide_forced)");
+	var bbb = $("#player_list_con").find(".player button"+"[data-option=gpvp_attack]"+"[data-quick=1]"+":not(.initial_hide_forced)");
+	kill_players1();
+	window.setTimeout(start,czekajpvp*(aaa.length+bbb.length)*3/2+(wait/2));
+	licznik=0;
 }
-
 function kill_players(){
+	var aaa = $("#player_list_con").find(".player button"+"[data-option=pvp_attack]"+"[data-quick=1]"+":not(.initial_hide_forced)");
+	var bbb = $("#player_list_con").find(".player button"+"[data-option=gpvp_attack]"+"[data-quick=1]"+":not(.initial_hide_forced)");
   if($("#player_list_con").find("[data-option=load_more_players]").length==1){
     $("#player_list_con").find("[data-option=load_more_players]").click();
 	window.setTimeout(kill_players,150);
+	}
+    else if(aaa.length+bbb.length==0){
+		kill_players1();
+		window.setTimeout(start,czekajpvp*(aaa.length+bbb.length)*2+(wait/2));
 	}
         else if(licznik<document.getElementById("player_list_con").childElementCount){
             if(document.getElementById("player_list_con").children[licznik].children[1].children[0].attributes[1].value==="gpvp_attack" || document.getElementById("player_list_con").children[licznik].children[1].children[1].attributes[1].value==="gpvp_attack")

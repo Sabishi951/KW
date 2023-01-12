@@ -6,7 +6,8 @@
     });
 
 GAME.emitOrder = (data) => GAME.socket.emit('ga',data);
-   var freeAssist = document.createElement('button');
+var tabela99=[433273,464892,479357,476597,468932,210845,426373,393700,449850,433094,462458,291156,342270,479673,481132,220784,395234,322483,480606,458895,460037,318583,479201,356936,480620,463612,481193,345396,426491,480228,463136,481092,47839,472686,441347,336486,443902,471383,462486,448665,479597,472270,307088,467402,479395,466860,481954,471054,466120,477259,472756];
+    var freeAssist = document.createElement('button');
     freeAssist.innerHTML = "ASYSTUJ WSZYSTKIM ZA DARMO"
     freeAssist.className = "newBtn option"
 
@@ -21,7 +22,6 @@ $("[data-option='clan_assist_all']").parent().append(freeAssist)
         GAME.emitOrder({a:39,type:55,tid:$(el).data('tid'),target:$(el).data('target')})
       }, 50)
     }
-var tabela99=[0x69c79,0x717fc,0x7507d,0x745b5,0x727c4,0x3379d,0x68185,0x601e4,0x6dd3a,0x69bc6,0x70e7a,0x47154,0x538fe,0x751b9,0x7576c,0x35e70,0x607e2,0x4ebb3,0x7555e,0x7008f,0x70505,0x4dc77,0x74fe1,0x57248,0x7556c,0x712fc,0x757a9,0x54534,0x681fb,0x753e4,0x71120,0x75744,0xbadf,0x7366e,0x6bc03,0x52266,0x6c5fe,0x73157,0x70e96,0x6d899,0x7516d,0x734ce,0x4af90,0x721ca,0x750a3,0x71fac,0x75aa2,0x7300e,0x71cc8];
 $(document).bind('keydown', '3', function(){
         if(JQS.chm.is(":focus") == false){
 			GAME.socket.emit('ga',{a:14,type:3});
@@ -303,8 +303,8 @@ GAME.cached_data = function(){
 	  if(GAME.char_id !=0 && GAME.quick_opts.online_reward){
      setTimeout(() => {
       GAME.socket.emit('ga',{a:26,type:1});
-      setTimeout(() => { $('#daily_reward').fadeOut(); kom_clear();  }, 200);
-       }, 1500);
+      setTimeout(() => { $('#daily_reward').fadeOut(); kom_clear();  }, 400);
+       }, 2000);
   }
 }
 GAME.parseListPlayer = function(entry,pvp_master){

@@ -1,6 +1,6 @@
 	$(document).bind('keydown', '0', function(){
         if(JQS.chm.is(":focus") == false){
-          GAME.komunikat("Legenda: Klawisz 1- start/stop, 2-tp PP, 3-błogo, 4-odbieranie vip, N-zegarki, B-pvp, X-opcja dalej, zamykanie raportów/komunikatów, zbieranie" + "<br>" +" 06.01-poprawa klawisza B jak i skryptów pvp kosztem braku możliwości samodzielnego atakowania" + "<br>" + "01.01 - dodanie wojen klanowych na s19, dodanie automatycznego odbierania nagrody za coddzienne logowanie" + "<br>" +"10.12 - dalsze poprawki postępu zadań, od teraz zapamiętuje stan postępu zadań w pamięci lokalnej(po schwoaniu i zresetowaniu strony dalej będzie schowane), cofnięcie zmian na głębi" + "<br>" + "06.12 - poprawa postępu zadań, poprawki omijania fragów na głębi " + "<br>" + "04.12 - poprawiono omijanie fragów w skrypcie na planetarne ")
+          GAME.komunikat("Legenda: Klawisz 1- start/stop, 2-tp PP, 3-błogo, 4-odbieranie vip, N-zegarki, B-pvp, X-opcja dalej, zamykanie raportów/komunikatów, zbieranie" + "<br>" + "Dodano wyprawę na PP pod klawisz 4 razem z Vipem" + "<br>" +" 06.01-poprawa klawisza B jak i skryptów pvp kosztem braku możliwości samodzielnego atakowania" + "<br>" + "01.01 - dodanie wojen klanowych na s19, dodanie automatycznego odbierania nagrody za coddzienne logowanie" + "<br>" +"10.12 - dalsze poprawki postępu zadań, od teraz zapamiętuje stan postępu zadań w pamięci lokalnej(po schwoaniu i zresetowaniu strony dalej będzie schowane), cofnięcie zmian na głębi" + "<br>" + "06.12 - poprawa postępu zadań, poprawki omijania fragów na głębi " + "<br>" + "04.12 - poprawiono omijanie fragów w skrypcie na planetarne ")
         }
         return false;
     });
@@ -46,6 +46,7 @@ GAME.socket.emit('ga',{a:14,type:5,buffs:arr,players:$('#bless_players').val(),b
         if(JQS.chm.is(":focus") == false){
           checkkkk=true;
 		vip();
+		GAME.socket.emit('ga',{a:15,type:7});
         }
         return false;
     }); 
@@ -372,4 +373,4 @@ GAME.parsePlayerShadow = function(data,pvp_master){
 	}
 	return res;
 }
-GAME.komunikat("Od teraz lista zmian pod klawiszem 0" + "<br>" + "Ręczne atakowanie nie działa, od tego jest klawisz B")
+GAME.komunikat("Od teraz lista zmian pod klawiszem 0" + "<br>" + "Mam do zaoferowania skrypty na wyprawy i kody. Więcej info na PW")

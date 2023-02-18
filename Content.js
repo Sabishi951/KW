@@ -373,4 +373,4 @@ GAME.parsePlayerShadow = function(data,pvp_master){
 	}
 	return res;
 }
-GAME.komunikat("Od teraz lista zmian pod klawiszem 0" + "<br>" + "Mam do zaoferowania skrypty na wyprawy i kody. Więcej info na PW")
+GAME.komunikat("Kody i wyprawy dalej aktualne. 18.02")

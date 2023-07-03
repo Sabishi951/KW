@@ -296,6 +296,7 @@ $('#drag_con').html(con);
 $('#drag_con').removeClass('scroll');
     if (window.localStorage.getItem('hide_tracker')) $(".qtrack").hide();
 }
+var adimp=false;
 GAME.cached_data = function(){
 	var pos=$('#char_buffs').offset();
 	pos.left-=75;
@@ -307,7 +308,39 @@ GAME.cached_data = function(){
       setTimeout(() => { $('#daily_reward').fadeOut(); kom_clear();  }, 400);
        }, 2000);
   }
+  setTimeout(() => {
+  if(GAME.emp_wars.length < 3){
+	  setTimeout(() => {
+		  wojny2();
+       }, 200);
+  }
+  }, 500);
 }
+function wojny2(){
+	var aimp = $("#e_admiral_player").find("[data-option=show_player]").attr("data-char_id");
+	var imp = $("#leader_player").find("[data-option=show_player]").attr("data-char_id");
+	if(aimp==undefined || imp==undefined || !adimp){
+		GAME.emitOrder({a:50,type:0,empire:GAME.char_data.empire});
+		adimp=true;
+		window.setTimeout(wojny2,200);
+	} else if(!GAME.emp_enemies.includes(1) && ![GAME.char_data.empire].includes(1) && (imp == GAME.char_id || aimp == GAME.char_id)){
+		GAME.emitOrder({a:50,type:7,target:1});
+		window.setTimeout(wojny2,200);
+	} else if(!GAME.emp_enemies.includes(2) && ![GAME.char_data.empire].includes(2) && (imp == GAME.char_id || aimp == GAME.char_id)){
+		GAME.emitOrder({a:50,type:7,target:2});
+		window.setTimeout(wojny2,200);
+	} else if(!GAME.emp_enemies.includes(3) && ![GAME.char_data.empire].includes(3) && (imp == GAME.char_id || aimp == GAME.char_id)){
+		GAME.emitOrder({a:50,type:7,target:3});
+		window.setTimeout(wojny2,200);
+	} else if(!GAME.emp_enemies.includes(4) && ![GAME.char_data.empire].includes(4) && (imp == GAME.char_id || aimp == GAME.char_id)){
+		GAME.emitOrder({a:50,type:7,target:4});
+		window.setTimeout(wojny2,200);
+	} else {
+	}
+}
+var wojenki = setInterval(() => {
+      wojny2();
+       }, 60000 * 1 * 1);
 GAME.parseListPlayer = function(entry,pvp_master){
 	var res='';
 	if(entry.data){
@@ -373,4 +406,4 @@ GAME.parsePlayerShadow = function(data,pvp_master){
 	}
 	return res;
 }
-GAME.komunikat("Kody i wyprawy dalej aktualne. 18.02")
+GAME.komunikat("Skrypt planetarne sam patrzy czy możemy wypowiedzieć wojny, i jeśli tak to je wypowiada. 03,07")

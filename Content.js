@@ -407,4 +407,4 @@ GAME.parsePlayerShadow = function(data,pvp_master){
 	}
 	return res;
 }
-GAME.komunikat("Skrypt planetarne sam patrzy czy możemy wypowiedzieć wojny, i jeśli tak to je wypowiada. 03,07")
+GAME.komunikat("Zdaje sobie sprawę z niedziałającymi listami. Dlatego do jutra wieczora chcę aby każdy napisał mi co woli. Czy automatyczne wojny cały czas, i poprawiony skrypt na listy, czy bez wojen i bez zmiany skryptu na listy gończe. 04.07")

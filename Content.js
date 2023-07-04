@@ -297,6 +297,7 @@ $('#drag_con').removeClass('scroll');
     if (window.localStorage.getItem('hide_tracker')) $(".qtrack").hide();
 }
 var adimp=false;
+var born=false;
 GAME.cached_data = function(){
 	var pos=$('#char_buffs').offset();
 	pos.left-=75;
@@ -309,7 +310,7 @@ GAME.cached_data = function(){
        }, 2000);
   }
   setTimeout(() => {
-  if(GAME.emp_wars.length < 3){
+  if(GAME.emp_wars.length < 3 && !born){
 	  setTimeout(() => {
 		  wojny2();
        }, 200);
@@ -319,7 +320,7 @@ GAME.cached_data = function(){
 function wojny2(){
 	var aimp = $("#e_admiral_player").find("[data-option=show_player]").attr("data-char_id");
 	var imp = $("#leader_player").find("[data-option=show_player]").attr("data-char_id");
-	if(aimp==undefined || imp==undefined || !adimp){
+	if(aimp==undefined || imp==undefined || !adimp && !born){
 		GAME.emitOrder({a:50,type:0,empire:GAME.char_data.empire});
 		adimp=true;
 		window.setTimeout(wojny2,200);

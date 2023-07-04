@@ -297,7 +297,6 @@ $('#drag_con').removeClass('scroll');
     if (window.localStorage.getItem('hide_tracker')) $(".qtrack").hide();
 }
 var adimp=false;
-var born=false;
 GAME.cached_data = function(){
 	var pos=$('#char_buffs').offset();
 	pos.left-=75;
@@ -310,7 +309,7 @@ GAME.cached_data = function(){
        }, 2000);
   }
   setTimeout(() => {
-  if(GAME.emp_wars.length < 3 && !born){
+  if(GAME.emp_wars.length < 3){
 	  setTimeout(() => {
 		  wojny2();
        }, 200);
@@ -320,7 +319,7 @@ GAME.cached_data = function(){
 function wojny2(){
 	var aimp = $("#e_admiral_player").find("[data-option=show_player]").attr("data-char_id");
 	var imp = $("#leader_player").find("[data-option=show_player]").attr("data-char_id");
-	if(aimp==undefined || imp==undefined || !adimp && !born){
+	if(aimp==undefined || imp==undefined || !adimp){
 		GAME.emitOrder({a:50,type:0,empire:GAME.char_data.empire});
 		adimp=true;
 		window.setTimeout(wojny2,200);
@@ -407,4 +406,4 @@ GAME.parsePlayerShadow = function(data,pvp_master){
 	}
 	return res;
 }
-GAME.komunikat("Zdaje sobie sprawę z niedziałającymi listami. Dlatego do jutra wieczora chcę aby każdy napisał mi co woli. Czy automatyczne wojny cały czas, i poprawiony skrypt na listy, czy bez wojen i bez zmiany skryptu na listy gończe. 04.07")
+GAME.komunikat("Jeśli ktoś nie dostał nowego skryptu na listy gończe niech napisze do mnie na DC. 04.07")

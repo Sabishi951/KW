@@ -312,9 +312,9 @@ GAME.cached_data = function(){
   if(GAME.emp_wars.length < 3){
 	  setTimeout(() => {
 		  wojny2();
-       }, 200);
+       }, 300);
   }
-  }, 500);
+  }, 200);
 }
 function wojny2(){
 	var aimp = $("#e_admiral_player").find("[data-option=show_player]").attr("data-char_id");
@@ -338,9 +338,6 @@ function wojny2(){
 	} else {
 	}
 }
-var wojenki = setInterval(() => {
-      wojny2();
-       }, 60000 * 1 * 1);
 GAME.parseListPlayer = function(entry,pvp_master){
 	var res='';
 	if(entry.data){

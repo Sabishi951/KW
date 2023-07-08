@@ -262,39 +262,48 @@ GAME.abbreviateNumber = function(number, decPlaces=2) {
     }
     return number;
 }
-   $( "body" ).on( "click", "#quest_track_con", function(){
-            if (!localStorage.getItem('hide_tracker')) {
-                localStorage.setItem('hide_tracker',true);
-                $(".qtrack").hide();
-            } else {
-                localStorage.removeItem('hide_tracker');
-                $(".qtrack").show();
-            }
-        });
-$('#drag_tracker').on('click').on('click',function() {
-	if($('#drag_con').hasClass('scroll'))
-	{
-		$('#drag_con').removeClass('scroll');
-	}
-});
+
+ $('#drag_tracker').off('click').on('click',function() {
+        if ($('#drag_con').hasClass('scroll')) {
+            $('#drag_con').removeClass('scroll');
+        }
+	else $('#drag_con').addClass('scroll');
+    });
 GAME.parseTracker = function(track){
-	var con='';
-	var any=false;
-	if(track&&track.length){
-		var len=track.length;
-		//con+='<div class="sekcja" id="drag_tracker">'+LNG.lab181+'</div><div id="drag_con" class="scroll">';
-		for(var i=0;i<len;i++){
-			any=true;
-			var qn=track[i].header;
-			if(qn.length>15) qn=qn.slice(0,15)+'...';
-			con+='<div id="track_quest_'+track[i].qb_id+'" class="qtrack"><div class="sep'+(track[i].m==1?3:2)+'"></div><b>'+qn+'</b> '+this.quest_want(track[i].want,track[i].qb_id)+'</div>';
-		}
-	}
-	
-	//con+='</div><div class="clr"></div>';
-$('#drag_con').html(con);
-$('#drag_con').removeClass('scroll');
-    if (window.localStorage.getItem('hide_tracker')) $(".qtrack").hide();
+    GAME.socket.emit('ga',{a:22,type:3}); // ŁADOWANIE DZIENNIKA ZADAŃ
+    var con='';
+  var zwykle_html_dsa = '';
+    var glowne_html_dsa = '';
+    if (track&&track.length) {
+        var len=track.length;
+        con+='<div class="sekcja" id="drag_tracker">'+LNG.lab181+'</div><div id="drag_con" class="scroll">';
+
+        for (var i=0;i<len;i++) {
+            var qn=track[i].header;
+            if(qn.length>15) qn=qn.slice(0,15)+'...';
+              let attroq = $(`#page_game_qb #qb_list #quest_log_tr${track[i].qb_id}`).find(`.qb_right:contains("[ GŁÓWNE ]")`).length;
+
+            if (attroq == 1) {
+                glowne_html_dsa+=`<div id="track_quest_${track[i].qb_id}" class="qtrack"><div class="sep3"></div><b >${qn}</b> ${this.quest_want(track[i].want,track[i].qb_id)}</div>`;
+            } else {
+                zwykle_html_dsa+=`<div id="track_quest_${track[i].qb_id}" class="qtrack"><div class="sep2"></div><b>${qn}</b> ${this.quest_want(track[i].want,track[i].qb_id)}</div>`;
+            }
+        }
+    }
+con += glowne_html_dsa;
+    con += zwykle_html_dsa;
+    con+='</div><div class="clr"></div>';
+    $('#quest_track_con').html(con);
+    $('#drag_tracker').off('click').on('click',function() {
+        if ($('#drag_con').hasClass('scroll')) {
+            $('#drag_con').removeClass('scroll');
+        }
+	else $('#drag_con').addClass('scroll');
+    });
+
+    if (GAME.map_quests) {
+        kwE.parseMapInfo(GAME.map_quests, "GAME.parseTracker");
+    }
 }
 var adimp=false;
 GAME.cached_data = function(){
@@ -403,4 +412,4 @@ GAME.parsePlayerShadow = function(data,pvp_master){
 	}
 	return res;
 }
-GAME.komunikat("Jeśli ktoś nie dostał nowego skryptu na listy gończe niech napisze do mnie na DC. 08.07")
+GAME.komunikat("Jeśli ktoś nie dostał nowego skryptu na listy gończe niech napisze do mnie na DC. 07.07")

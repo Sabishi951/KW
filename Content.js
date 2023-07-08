@@ -301,9 +301,6 @@ con += glowne_html_dsa;
 	else $('#drag_con').addClass('scroll');
     });
 
-    if (GAME.map_quests) {
-        kwE.parseMapInfo(GAME.map_quests, "GAME.parseTracker");
-    }
 }
 var adimp=false;
 GAME.cached_data = function(){
@@ -412,4 +409,4 @@ GAME.parsePlayerShadow = function(data,pvp_master){
 	}
 	return res;
 }
-GAME.komunikat("Jeśli ktoś nie dostał nowego skryptu na listy gończe niech napisze do mnie na DC. 07.07")
+GAME.komunikat("Jeśli ktoś nie dostał nowego skryptu na listy gończe niech napisze do mnie na DC. 04.07")

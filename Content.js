@@ -270,7 +270,6 @@ GAME.abbreviateNumber = function(number, decPlaces=2) {
 	else $('#drag_con').addClass('scroll');
     });
 GAME.parseTracker = function(track){
-    GAME.socket.emit('ga',{a:22,type:3}); // ŁADOWANIE DZIENNIKA ZADAŃ
     var con='';
   var zwykle_html_dsa = '';
     var glowne_html_dsa = '';

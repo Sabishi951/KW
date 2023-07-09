@@ -326,6 +326,7 @@ GAME.cached_data = function(){
        }, 300);
   }
   }, 200);
+  $('#train_uptime').html(GAME.showTimer(GAME.char_data.train_ucd-GAME.getTime()));
 }
 function wojny2(){
 	var aimp = $("#e_admiral_player").find("[data-option=show_player]").attr("data-char_id");

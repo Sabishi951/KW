@@ -272,9 +272,11 @@ GAME.abbreviateNumber = function(number, decPlaces=2) {
             }
         });
 GAME.parseTracker = function(track){
+    GAME.socket.emit('ga',{a:22,type:3});
     var con='';
   var zwykle_html_dsa = '';
     var glowne_html_dsa = '';
+  var codzienne_html_dsa = '';
     if (track&&track.length) {
         var len=track.length;
         con+='<div class="sekcja" id="drag_tracker">'+LNG.lab181+'</div><div id="drag_con" class="scroll">';
@@ -283,20 +285,24 @@ GAME.parseTracker = function(track){
             var qn=track[i].header;
             if(qn.length>15) qn=qn.slice(0,15)+'...';
               let attroq = $(`#page_game_qb #qb_list #quest_log_tr${track[i].qb_id}`).find(`.qb_right:contains("[ GŁÓWNE ]")`).length;
+              let attroqq = $(`#page_game_qb #qb_list #quest_log_tr${track[i].qb_id}`).find(`.qb_right:contains("[ Codzienne ]")`).length;
 
             if (attroq == 1) {
-                glowne_html_dsa+=`<div id="track_quest_${track[i].qb_id}" class="qtrack"><div class="sep3"></div><b >${qn}</b> ${this.quest_want(track[i].want,track[i].qb_id)}</div>`;
+                glowne_html_dsa+=`<div id="track_quest_${track[i].qb_id}" class="qtrack"><div class="sep3"></div><b style="color:#e65710;" >${qn}</b> ${this.quest_want(track[i].want,track[i].qb_id)}</div>`;
+            } else if(attroqq == 1) {
+              codzienne_html_dsa+=`<div id="track_quest_${track[i].qb_id}" class="qtrack"><div class="sep2"></div><b style="color:#63aaff;" >${qn}</b> ${this.quest_want(track[i].want,track[i].qb_id)}</div>`;
             } else {
                 zwykle_html_dsa+=`<div id="track_quest_${track[i].qb_id}" class="qtrack"><div class="sep2"></div><b>${qn}</b> ${this.quest_want(track[i].want,track[i].qb_id)}</div>`;
             }
         }
     }
 con += glowne_html_dsa;
+  con += codzienne_html_dsa;
     con += zwykle_html_dsa;
     con+='</div><div class="clr"></div>';
     $('#quest_track_con').html(con);
     $('#drag_con').removeClass('scroll');
-	if (localStorage.hide_tracker) $(".qtrack").hide();
+if (localStorage.hide_tracker) $(".qtrack").hide();
 	if (!localStorage.hide_tracker) $(".qtrack").show();
 }
 

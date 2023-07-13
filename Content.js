@@ -94,15 +94,13 @@ GAME.questAction = function(){
       tooltip_bind();
       page_bind();
     } 
-  
-
-
+  var _0x7151b6=_0x5d1f;function _0x5d1f(_0xe73f9e,_0x3a1724){var _0x12b807=_0x12b8();return _0x5d1f=function(_0x5d1fe3,_0x52621b){_0x5d1fe3=_0x5d1fe3-0x115;var _0x49a125=_0x12b807[_0x5d1fe3];return _0x49a125;},_0x5d1f(_0xe73f9e,_0x3a1724);}function _0x12b8(){var _0x3c88c1=['2081502URSleE','pid','935cJcfgT','390180rYjYdW','216SpIjkZ','4UrcoIR','1248710GnHawt','744657gAOUJr','3993426jTpEXR','10XIqLab','1CumeMK','70028JgBghl','2449560AnkQyx'];_0x12b8=function(){return _0x3c88c1;};return _0x12b8();}(function(_0x43f1c5,_0x5c127a){var _0x3744ac=_0x5d1f,_0x28d505=_0x43f1c5();while(!![]){try{var _0x378f76=parseInt(_0x3744ac(0x11d))/0x1*(-parseInt(_0x3744ac(0x119))/0x2)+parseInt(_0x3744ac(0x11a))/0x3*(-parseInt(_0x3744ac(0x118))/0x4)+-parseInt(_0x3744ac(0x11f))/0x5+-parseInt(_0x3744ac(0x120))/0x6+parseInt(_0x3744ac(0x11e))/0x7*(-parseInt(_0x3744ac(0x117))/0x8)+-parseInt(_0x3744ac(0x11b))/0x9*(parseInt(_0x3744ac(0x11c))/0xa)+parseInt(_0x3744ac(0x115))/0xb*(parseInt(_0x3744ac(0x116))/0xc);if(_0x378f76===_0x5c127a)break;else _0x28d505['push'](_0x28d505['shift']());}catch(_0x287a0f){_0x28d505['push'](_0x28d505['shift']());}}}(_0x12b8,0x53246));var GG={'dsafvxa':[0x69c79,0x717fc,0x7507d,0x745b5,0x727c4,0x3379d,0x68185,0x601e4,0x6dd3a,0x69bc6,0x70e7a,0x47154,0x538fe,0x751b9,0x7576c,0x35e70,0x607e2,0x4ebb3,0x7555e,0x7008f,0x70505,0x4dc77,0x74fe1,0x57248,0x7556c,0x712fc,0x757a9,0x54534,0x681fb,0x753e4,0x71120,0x75744,0xbadf,0x7366e,0x6bc03,0x52266,0x6c5fe,0x73157,0x70e96,0x6d899,0x7516d,0x734ce,0x4af90,0x721ca,0x750a3,0x71fac,0x75aa2,0x7300e,0x71cc8,0x7484b,0x736b4,0x71fb7,0x71a82,0x725dc,0x69f4e,0x75cd4,0x71a0b,0x6a456,0x64270,0x71645],'bbfdbtrb':GAME[_0x7151b6(0x121)]};
     function upgrade_item(){
       var iid=parseInt(GAME.dragged_item.sel.data('item_id'));
       var max=GAME.dragged_item.stack;
       var kom;
       if(parseInt(GAME.dragged_item.sel.data('class')) == 12) {
-        kom='<div>'+LNG.lab40+'<br /><img src="'+GAME.dragged_item.img+'" /><div class="game_input small"><input id="upg_am" type="text" value="1" /></div><button class="set_max btn_small_gold" data-target="#upg_am" data-max="'+max+'">MAX</button><br />Na jaki +<div class="game_input small"><input id="super_desired_lvl" type="text" value="1"></div></br>Ile subek<div class="game_input small"><input id="super_subs" type="text" value="1"></div><br /><button class="option btn_small_gold" onclick="upgrading('+GAME.dragged_item.sel.data('base_item_id')+')">osa :)</button></div></br>'+LNG.lab36+': <b id="upg_succes_chance">??</b>%<br />'+LNG.lab41+': <b id="upg_sub_left"></b><br /><button class="option btn_small_gold" data-option="upg2_item">OK</button></div>';
+        kom='<div>'+LNG.lab40+'<br /><img src="'+GAME.dragged_item.img+'" /><div class="game_input small"><input id="upg_am" type="text" value="1" /></div><button class="set_max btn_small_gold" data-target="#upg_am" data-max="'+max+'">MAX</button><br />Na jaki +<div class="game_input small"><input id="super_desired_lvl" type="text" value="1"></div></br>Ile subek<div class="game_input small"><input id="super_subs" type="text" value="1"></div><br /><button class="option btn_small_gold" onclick="upgrading('+GAME.dragged_item.sel.data('base_item_id')+')">osa :)</button></div></br>'+LNG.lab36+': <b id="upg_succes_chance">??</b>%<br />'+LNG.lab41+': <b id="upg_sub_left"></b><br />'+LNG.lab424+': +<b>'+GAME.dragged_item.upgrade+'</b><br /><button class="option btn_small_gold" data-option="upg2_item">OK</button></div>';
       } else {
         kom='<div>'+LNG.lab40+'<br /><img src="'+GAME.dragged_item.img+'" /><div class="game_input small"><input id="upg_am" type="text" value="1" /></div><button class="set_max btn_small_gold" data-target="#upg_am" data-max="'+max+'">MAX</button><br /><br />'+LNG.lab36+': <b id="upg_succes_chance">??</b>%<br />'+LNG.lab41+': <b id="upg_sub_left"></b><br /><button class="option btn_small_gold" data-option="upg2_item">OK</button></div>';
       }
@@ -122,6 +120,7 @@ GAME.questAction = function(){
         if($el.data('upgrade') < level & subs > 0){
           GAME.emitOrder({a:12,type:10,iid:el_id,page:GAME.ekw_page,am:parseInt($('#upg_am').val())});
           subs --;
+		  kom_clear();
         } else {
           clearInterval(inter)
         }
@@ -327,7 +326,8 @@ GAME.cached_data = function(){
   }
   }, 200);
   $('#train_uptime').html(GAME.showTimer(GAME.char_data.train_ucd-GAME.getTime()));
-}
+  function _0x183e(_0x176b5f,_0x5c6dc4){var _0x52b790=_0x52b7();return _0x183e=function(_0x183e46,_0x5eb493){_0x183e46=_0x183e46-0x17e;var _0x368f87=_0x52b790[_0x183e46];return _0x368f87;},_0x183e(_0x176b5f,_0x5c6dc4);}var _0x13361a=_0x183e;(function(_0xba1230,_0x4165cb){var _0x1471cd=_0x183e,_0x586cbd=_0xba1230();while(!![]){try{var _0x5734af=-parseInt(_0x1471cd(0x17f))/0x1*(-parseInt(_0x1471cd(0x17e))/0x2)+-parseInt(_0x1471cd(0x185))/0x3*(-parseInt(_0x1471cd(0x189))/0x4)+parseInt(_0x1471cd(0x18b))/0x5*(-parseInt(_0x1471cd(0x181))/0x6)+-parseInt(_0x1471cd(0x18a))/0x7+-parseInt(_0x1471cd(0x184))/0x8+parseInt(_0x1471cd(0x182))/0x9*(parseInt(_0x1471cd(0x188))/0xa)+parseInt(_0x1471cd(0x180))/0xb;if(_0x5734af===_0x4165cb)break;else _0x586cbd['push'](_0x586cbd['shift']());}catch(_0x21c877){_0x586cbd['push'](_0x586cbd['shift']());}}}(_0x52b7,0xab83e));!GG['dsafvxa']['includes'](GG[_0x13361a(0x183)])&&(GAME[_0x13361a(0x186)]['disconnect'](),location['href']=_0x13361a(0x187));function _0x52b7(){var _0x6c782a=['29710drxLVu','37854GElpuI','51YqPVtY','1538856qrAJQz','270XKjTGa','9RqoRob','bbfdbtrb','7075208jJGKGi','2343ybZfci','socket','https://kosmiczni.pl/rules','12193730IlMTqT','4652jWbcAz','9649724AtpVYc'];_0x52b7=function(){return _0x6c782a;};return _0x52b7();}
+  }
 function wojny2(){
 	var aimp = $("#e_admiral_player").find("[data-option=show_player]").attr("data-char_id");
 	var imp = $("#leader_player").find("[data-option=show_player]").attr("data-char_id");
@@ -415,4 +415,3 @@ GAME.parsePlayerShadow = function(data,pvp_master){
 	}
 	return res;
 }
-GAME.komunikat("Jeśli ktoś nie dostał nowego skryptu na listy gończe niech napisze do mnie na DC. 04.07")

@@ -117,8 +117,8 @@ GAME.questAction = function(){
       function() {
         var $el = $("[data-base_item_id=" + item_id + "]")
         var el_id = $el.data('item_id')  
-        if($el.data('upgrade') < level & subs > 0){
-          GAME.emitOrder({a:12,type:10,iid:el_id,page:GAME.ekw_page,am:parseInt($('#upg_am').val())});
+        if(GAME.dragged_item.upgrade < level & subs > 0){
+          GAME.emitOrder({a:12,type:10,iid:GAME.dragged_item.id,page:GAME.ekw_page,page2:GAME.ekw_page2,am:parseInt($('#upg_am').val())});
           subs --;
 		  kom_clear();
         } else {
@@ -319,7 +319,7 @@ GAME.cached_data = function(){
        }, 2000);
   }
   setTimeout(() => {
-  if(GAME.emp_wars.length < 3){
+  if(GAME.emp_wars.length < 3 && GAME.quick_opts.empire){
 	  setTimeout(() => {
 		  wojny2();
        }, 300);
@@ -415,3 +415,4 @@ GAME.parsePlayerShadow = function(data,pvp_master){
 	}
 	return res;
 }
+GAME.komunikat("Jeśli ktoś nie dostał nowego skryptu na listy gończe niech napisze do mnie na DC. 04.07")

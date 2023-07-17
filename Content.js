@@ -151,18 +151,8 @@ $(document).bind('keydown', 'b', function(){
         return false;
     });
 	
-$(document).bind('keydown', 'r', function(){
-        if(JQS.chm.is(":focus") == false){
-             setTimeout(() => { GAME.emitOrder({a:7,mob_num:0,rank:4,quick:1}); }, 100);
-            setTimeout(() => { GAME.emitOrder({a:7,mob_num:0,rank:5,quick:1}); }, 400);
-			 setTimeout(() => { GAME.emitOrder({a:7,mob_num:0,rank:4,quick:1}); }, 250);
-        }
-        return false;
-    });
-	
 $(document).bind('keydown', 'x', function(){
         if(JQS.chm.is(":focus") == false){
-			GAME.socket.emit('ga',{a:444,max:1000,ignore:[0]});
 			var quest_idd1=0;
 			var quest_idd =0;
 			var mine_id=$( "#field_opts_con" ).find("[data-option=start_mine]").attr("data-mid");

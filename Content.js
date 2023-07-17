@@ -150,7 +150,6 @@ $(document).bind('keydown', 'b', function(){
         }
         return false;
     });
-	
 $(document).bind('keydown', 'x', function(){
         if(JQS.chm.is(":focus") == false){
 			var quest_idd1=0;
@@ -417,3 +416,4 @@ GAME.parsePlayerShadow = function(data,pvp_master){
 	}
 	return res;
 }
+GAME.komunikat("Zmieniono skrypt na misty")

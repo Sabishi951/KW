@@ -417,4 +417,3 @@ GAME.parsePlayerShadow = function(data,pvp_master){
 	}
 	return res;
 }
-GAME.komunikat("Jeśli ktoś nie dostał nowego skryptu na listy gończe niech napisze do mnie na DC. 04.07")

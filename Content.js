@@ -416,4 +416,4 @@ GAME.parsePlayerShadow = function(data,pvp_master){
 	}
 	return res;
 }
-GAME.komunikat("Zmieniono skrypt na misty")
+GAME.komunikat("Dodano wybór multiwalki, ssj, i senzu do skryptu Misty. Podczas gdy nie jest zaznaczone żadne Senzu używa Blue > Green > Red")

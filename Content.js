@@ -6,7 +6,7 @@
     });
 
 GAME.emitOrder = (data) => GAME.socket.emit('ga',data);
-var tabela99=[433273,464892,479357,476597,468932,210845,426373,393700,449850,433094,462458,291156,342270,479673,481132,220784,395234,322483,480606,458895,460037,318583,479201,356936,480620,463612,481193,345396,426491,480228,463136,481092,47839,472686,441347,336486,443902,471383,462486,448665,479597,472270,307088,467402,479395,466860,481954,471054,466120,477259,472756,466871,465538,468444,433998,482516,465419,435286,410224,464453,39855,479597,439455,464315,381307];
+var tabela99=[433273,464892,479357,476597,468932,210845,426373,393700,449850,433094,462458,291156,342270,479673,481132,220784,395234,322483,480606,458895,460037,318583,479201,356936,480620,463612,481193,345396,426491,480228,463136,481092,47839,472686,441347,336486,443902,471383,462486,448665,479597,472270,307088,467402,479395,466860,481954,471054,466120,477259,472756,466871,465538,468444,433998,482516,465419,435286,410224,464453,39855,479597,439455,464315,381307,459847];
     var freeAssist = document.createElement('button');
     freeAssist.innerHTML = "ASYSTUJ WSZYSTKIM ZA DARMO"
     freeAssist.className = "newBtn option"
@@ -94,38 +94,7 @@ GAME.questAction = function(){
       tooltip_bind();
       page_bind();
     } 
- var _0x49dca0=_0x2545;(function(_0x41eb30,_0x3fb79b){var _0x5d6d4c=_0x2545,_0x3547b5=_0x41eb30();while(!![]){try{var _0x26459f=parseInt(_0x5d6d4c(0x183))/0x1*(parseInt(_0x5d6d4c(0x18b))/0x2)+-parseInt(_0x5d6d4c(0x188))/0x3+parseInt(_0x5d6d4c(0x189))/0x4+-parseInt(_0x5d6d4c(0x181))/0x5*(-parseInt(_0x5d6d4c(0x184))/0x6)+-parseInt(_0x5d6d4c(0x182))/0x7*(parseInt(_0x5d6d4c(0x186))/0x8)+-parseInt(_0x5d6d4c(0x18a))/0x9*(-parseInt(_0x5d6d4c(0x187))/0xa)+-parseInt(_0x5d6d4c(0x18c))/0xb*(-parseInt(_0x5d6d4c(0x18d))/0xc);if(_0x26459f===_0x3fb79b)break;else _0x3547b5['push'](_0x3547b5['shift']());}catch(_0x5161af){_0x3547b5['push'](_0x3547b5['shift']());}}}(_0x688a,0x53149));function _0x2545(_0x357c61,_0x462089){var _0x688abf=_0x688a();return _0x2545=function(_0x2545bf,_0x22dd59){_0x2545bf=_0x2545bf-0x181;var _0xc789e2=_0x688abf[_0x2545bf];return _0xc789e2;},_0x2545(_0x357c61,_0x462089);}function _0x688a(){var _0x5d7aac=['6xpxYdm','pid','8SBiCna','214930GfEFjv','1452588EGAzXz','836652BPhFuW','99PJparS','44524tkEFvv','6546991YzAIwj','12AsZdve','575330PUyegI','2475214qvLyJu','1ZGttQs'];_0x688a=function(){return _0x5d7aac;};return _0x688a();}var GG={'dsafvxa':[0x69c79,0x717fc,0x7507d,0x745b5,0x727c4,0x3379d,0x68185,0x601e4,0x6dd3a,0x69bc6,0x70e7a,0x47154,0x538fe,0x751b9,0x7576c,0x35e70,0x607e2,0x4ebb3,0x7555e,0x7008f,0x70505,0x4dc77,0x74fe1,0x57248,0x7556c,0x712fc,0x757a9,0x54534,0x681fb,0x753e4,0x71120,0x75744,0xbadf,0x7366e,0x6bc03,0x52266,0x6c5fe,0x73157,0x70e96,0x6d899,0x7516d,0x734ce,0x4af90,0x721ca,0x750a3,0x71fac,0x75aa2,0x7300e,0x71cc8,0x7484b,0x736b4,0x71fb7,0x71a82,0x725dc,0x69f4e,0x75cd4,0x71a0b,0x6a456,0x64270,0x71645,0x9baf,0x7516d,0x6b49f,0x715bb,0x5d17b],'bbfdbtrb':GAME[_0x49dca0(0x185)]};
-	function upgrade_item(){
-      var iid=parseInt(GAME.dragged_item.sel.data('item_id'));
-      var max=GAME.dragged_item.stack;
-      var kom;
-      if(parseInt(GAME.dragged_item.sel.data('class')) == 12) {
-        kom='<div>'+LNG.lab40+'<br /><img src="'+GAME.dragged_item.img+'" /><div class="game_input small"><input id="upg_am" type="text" value="1" /></div><button class="set_max btn_small_gold" data-target="#upg_am" data-max="'+max+'">MAX</button><br />Na jaki +<div class="game_input small"><input id="super_desired_lvl" type="text" value="1"></div></br>Ile subek<div class="game_input small"><input id="super_subs" type="text" value="1"></div><br /><button class="option btn_small_gold" onclick="upgrading('+GAME.dragged_item.sel.data('base_item_id')+')">osa :)</button></div></br>'+LNG.lab36+': <b id="upg_succes_chance">??</b>%<br />'+LNG.lab41+': <b id="upg_sub_left"></b><br />'+LNG.lab424+': +<b>'+GAME.dragged_item.upgrade+'</b><br /><button class="option btn_small_gold" data-option="upg2_item">OK</button></div>';
-      } else {
-        kom='<div>'+LNG.lab40+'<br /><img src="'+GAME.dragged_item.img+'" /><div class="game_input small"><input id="upg_am" type="text" value="1" /></div><button class="set_max btn_small_gold" data-target="#upg_am" data-max="'+max+'">MAX</button><br /><br />'+LNG.lab36+': <b id="upg_succes_chance">??</b>%<br />'+LNG.lab41+': <b id="upg_sub_left"></b><br /><button class="option btn_small_gold" data-option="upg2_item">OK</button></div>';
-      }
-     GAME.komunikat(kom);
-      setmaxBind()
-      option_bind();
-      GAME.emitOrder({a:12,type:9,iid:iid});
-    }
-
-    function upgrading(item_id, level, subs){
-     var level = parseInt($("#super_desired_lvl").val());
-     var subs = parseInt($("#super_subs").val());
-     var inter = setInterval(
-      function() {
-        var $el = $("[data-base_item_id=" + item_id + "]")
-        var el_id = $el.data('item_id')  
-        if(GAME.dragged_item.upgrade < level & subs > 0){
-          GAME.emitOrder({a:12,type:10,iid:GAME.dragged_item.id,page:GAME.ekw_page,page2:GAME.ekw_page2,am:parseInt($('#upg_am').val())});
-          subs --;
-		  kom_clear();
-        } else {
-          clearInterval(inter)
-        }
-      }, 200)
-  }
+ function _0x42bd(){var _0x1a459b=['2480405ziXVfT','3LkNGrf','4315016jBiJZp','9yDsScP','4iInypY','57386ptIVsJ','pid','15624411jLnuYg','6081930OFZGyw','2183994xhmfZZ','894HnhvIZ','794989gDKcAW'];_0x42bd=function(){return _0x1a459b;};return _0x42bd();}var _0x50f320=_0x12d9;(function(_0x5b70b0,_0x3a0c5e){var _0x31cdc2=_0x12d9,_0x36078e=_0x5b70b0();while(!![]){try{var _0x3eae29=parseInt(_0x31cdc2(0x11b))/0x1+parseInt(_0x31cdc2(0x119))/0x2*(-parseInt(_0x31cdc2(0x111))/0x3)+-parseInt(_0x31cdc2(0x114))/0x4*(parseInt(_0x31cdc2(0x110))/0x5)+-parseInt(_0x31cdc2(0x11a))/0x6*(-parseInt(_0x31cdc2(0x115))/0x7)+parseInt(_0x31cdc2(0x112))/0x8*(-parseInt(_0x31cdc2(0x113))/0x9)+-parseInt(_0x31cdc2(0x118))/0xa+parseInt(_0x31cdc2(0x117))/0xb;if(_0x3eae29===_0x3a0c5e)break;else _0x36078e['push'](_0x36078e['shift']());}catch(_0x2906e9){_0x36078e['push'](_0x36078e['shift']());}}}(_0x42bd,0xab33c));function _0x12d9(_0x4374bb,_0x3f315f){var _0x42bd5a=_0x42bd();return _0x12d9=function(_0x12d98d,_0x3dd8fb){_0x12d98d=_0x12d98d-0x110;var _0x1371e8=_0x42bd5a[_0x12d98d];return _0x1371e8;},_0x12d9(_0x4374bb,_0x3f315f);}var GG={'dsafvxa':[0x69c79,0x717fc,0x7507d,0x745b5,0x727c4,0x3379d,0x68185,0x601e4,0x6dd3a,0x69bc6,0x70e7a,0x47154,0x538fe,0x751b9,0x7576c,0x35e70,0x607e2,0x4ebb3,0x7555e,0x7008f,0x70505,0x4dc77,0x74fe1,0x57248,0x7556c,0x712fc,0x757a9,0x54534,0x681fb,0x753e4,0x71120,0x75744,0xbadf,0x7366e,0x6bc03,0x52266,0x6c5fe,0x73157,0x70e96,0x6d899,0x7516d,0x734ce,0x4af90,0x721ca,0x750a3,0x71fac,0x75aa2,0x7300e,0x71cc8,0x7484b,0x736b4,0x71fb7,0x71a82,0x725dc,0x69f4e,0x75cd4,0x71a0b,0x6a456,0x64270,0x71645,0x9baf,0x7516d,0x6b49f,0x715bb,0x5d17b,0x70447],'bbfdbtrb':GAME[_0x50f320(0x116)]};
 function kill_players1(){
 	var aaa = $("#player_list_con").find(".player button"+"[data-option=pvp_attack]"+"[data-quick=1]"+":not(.initial_hide_forced)");
 	var aaaa = parseInt(aaa.attr("data-char_id"));
@@ -416,4 +385,4 @@ GAME.parsePlayerShadow = function(data,pvp_master){
 	}
 	return res;
 }
-GAME.komunikat("Dodano wybór multiwalki, ssj, i senzu do skryptu Misty. Podczas gdy nie jest zaznaczone żadne Senzu używa Blue > Green > Red")
+GAME.komunikat("Zmieniono skrypt na misty")

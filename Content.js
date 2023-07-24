@@ -385,4 +385,4 @@ GAME.parsePlayerShadow = function(data,pvp_master){
 	}
 	return res;
 }
-GAME.komunikat("Zmieniono skrypt na misty")
+GAME.komunikat("Dla chętnych wersja z odpalaniem błogo i kodami podczas expa do dokupienia")

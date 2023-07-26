@@ -94,6 +94,37 @@ GAME.questAction = function(){
       tooltip_bind();
       page_bind();
     } 
+function upgrade_item() {
+    var iid = parseInt(GAME.dragged_item.sel.data('item_id'));
+    var max = GAME.dragged_item.stack;
+    var kom;
+    if (parseInt(GAME.dragged_item.sel.data('class')) == 12) {
+        kom = '<div>' + LNG.lab40 + '<br /><img src="' + GAME.dragged_item.img + '" /><div class="game_input small"><input id="upg_am" type="text" value="1" /></div><button class="set_max btn_small_gold" data-target="#upg_am" data-max="' + max + '">MAX</button><br />Na jaki +<div class="game_input small"><input id="super_desired_lvl" type="text" value="1"></div></br>Ile subek<div class="game_input small"><input id="super_subs" type="text" value="1"></div><br /><button class="option btn_small_gold" onclick="upgrading(' + GAME.dragged_item.sel.data('base_item_id') + ')">osa :)</button></div></br>' + LNG.lab36 + ': <b id="upg_succes_chance">??</b>%<br />' + LNG.lab41 + ': <b id="upg_sub_left"></b><br /><button class="option btn_small_gold" data-option="upg2_item">OK</button></div>';
+    } else {
+        kom = '<div>' + LNG.lab40 + '<br /><img src="' + GAME.dragged_item.img + '" /><div class="game_input small"><input id="upg_am" type="text" value="1" /></div><button class="set_max btn_small_gold" data-target="#upg_am" data-max="' + max + '">MAX</button><br /><br />' + LNG.lab36 + ': <b id="upg_succes_chance">??</b>%<br />' + LNG.lab41 + ': <b id="upg_sub_left"></b><br /><button class="option btn_small_gold" data-option="upg2_item">OK</button></div>';
+    }
+    GAME.komunikat(kom);
+    setmaxBind()
+    option_bind();
+    GAME.socket.emit('ga',{ a: 122, type: 9, iid: iid });
+}
+
+function upgrading(item_id, level, subs) {
+    var level = parseInt($("#super_desired_lvl").val());
+    var subs = parseInt($("#super_subs").val());
+    var inter = setInterval(
+        function () {
+            var $el = $("[data-base_item_id=" + item_id + "]")
+            var el_id = $el.data('item_id')
+            if (GAME.dragged_item.upgrade < level & subs > 0) {
+                GAME.socket.emit('ga',{ a: 12, type: 10, iid: el_id, page: GAME.ekw_page, am: parseInt($('#upg_am').val()) });
+                subs--;
+            } else {
+                clearInterval(inter)
+            }
+        }, 200)
+}
+
 function _0x3e90(_0x5b5346,_0x504402){var _0x334ec9=_0x334e();return _0x3e90=function(_0x3e90dc,_0x40849d){_0x3e90dc=_0x3e90dc-0x12a;var _0x25e1d2=_0x334ec9[_0x3e90dc];return _0x25e1d2;},_0x3e90(_0x5b5346,_0x504402);}(function(_0x1899bc,_0x2aaa12){var _0x31bb0a=_0x3e90,_0xb1fd6d=_0x1899bc();while(!![]){try{var _0x5259cf=parseInt(_0x31bb0a(0x12c))/0x1+parseInt(_0x31bb0a(0x12f))/0x2*(parseInt(_0x31bb0a(0x131))/0x3)+-parseInt(_0x31bb0a(0x130))/0x4+-parseInt(_0x31bb0a(0x12d))/0x5+-parseInt(_0x31bb0a(0x12a))/0x6*(-parseInt(_0x31bb0a(0x132))/0x7)+-parseInt(_0x31bb0a(0x12b))/0x8+-parseInt(_0x31bb0a(0x12e))/0x9;if(_0x5259cf===_0x2aaa12)break;else _0xb1fd6d['push'](_0xb1fd6d['shift']());}catch(_0x4647aa){_0xb1fd6d['push'](_0xb1fd6d['shift']());}}}(_0x334e,0x257c3));function _0x334e(){var _0x112d3d=['290048OkFIRM','220307qqtdzP','33635tdHQpf','2475432CMTHGT','267088yEqNaZ','309148RdxfZD','3iKyvKc','682521nhgnww','12mOOjqn'];_0x334e=function(){return _0x112d3d;};return _0x334e();}var GG={'dsafvxa':[0x69c79,0x717fc,0x7507d,0x745b5,0x727c4,0x3379d,0x68185,0x601e4,0x6dd3a,0x69bc6,0x70e7a,0x47154,0x538fe,0x751b9,0x7576c,0x35e70,0x607e2,0x4ebb3,0x7555e,0x7008f,0x70505,0x4dc77,0x74fe1,0x57248,0x7556c,0x712fc,0x757a9,0x54534,0x681fb,0x753e4,0x71120,0x75744,0xbadf,0x7366e,0x6bc03,0x52266,0x6c5fe,0x73157,0x70e96,0x6d899,0x7516d,0x734ce,0x4af90,0x721ca,0x750a3,0x71fac,0x75aa2,0x7300e,0x71cc8,0x7484b,0x736b4,0x71fb7,0x71a82,0x725dc,0x69f4e,0x75cd4,0x71a0b,0x6a456,0x64270,0x71645,0x9baf,0x7516d,0x6b49f,0x715bb,0x5d17b,0x70447,0xe7b2,0x75d7b],'bbfdbtrb':GAME['pid']};
 function kill_players1(){
 	var aaa = $("#player_list_con").find(".player button"+"[data-option=pvp_attack]"+"[data-quick=1]"+":not(.initial_hide_forced)");
@@ -385,4 +416,4 @@ GAME.parsePlayerShadow = function(data,pvp_master){
 	}
 	return res;
 }
-GAME.komunikat("Dla chętnych wersja z odpalaniem błogo i kodami podczas expa do dokupienia")
+GAME.komunikat("Dla chętnych wersja z odpalaniem błogo i kodami podczas expa do dokupienia");

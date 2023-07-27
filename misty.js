@@ -1,1 +1,347 @@
-function _0x24a4(_0x4e4283,_0xb4f12b){var _0x56dd62=_0x56dd();return _0x24a4=function(_0x24a44d,_0x5c367c){_0x24a44d=_0x24a44d-0x1e4;var _0x2c92ba=_0x56dd62[_0x24a44d];return _0x2c92ba;},_0x24a4(_0x4e4283,_0xb4f12b);}var _0x156c36=_0x24a4;(function(_0x564809,_0x106786){var _0x5753c0=_0x24a4,_0x210a9e=_0x564809();while(!![]){try{var _0x2513ca=-parseInt(_0x5753c0(0x208))/0x1+parseInt(_0x5753c0(0x1ec))/0x2+-parseInt(_0x5753c0(0x1f1))/0x3+parseInt(_0x5753c0(0x20c))/0x4+-parseInt(_0x5753c0(0x1fa))/0x5*(parseInt(_0x5753c0(0x235))/0x6)+-parseInt(_0x5753c0(0x1ea))/0x7*(-parseInt(_0x5753c0(0x1fb))/0x8)+-parseInt(_0x5753c0(0x1f6))/0x9*(-parseInt(_0x5753c0(0x1ed))/0xa);if(_0x2513ca===_0x106786)break;else _0x210a9e['push'](_0x210a9e['shift']());}catch(_0x11ae11){_0x210a9e['push'](_0x210a9e['shift']());}}}(_0x56dd,0x90f89));var wait=0x14,stop=!![],checkOST=!![],checkSSJ=!![],jaka=0x0,zmiana=!![],SENZU_BLUE=_0x156c36(0x20a),SENZU_GREEN=_0x156c36(0x1ff),SENZU_YELLOW=_0x156c36(0x209),SENZU_RED=_0x156c36(0x226),moveTimeout,gk=GAME['pid'],reload=![],multifight=!![],checkOST_timer=0x0,CONF_BLUE_AMOUNT=Math[_0x156c36(0x21a)](GAME['getCharMaxPr']()/0x64*0.7),CONF_GREEN_AMOUNT=Math[_0x156c36(0x21a)](GAME['getCharMaxPr']()/0xfa0*0.7),CONF_YELLOW_AMOUNT=0x4,CONF_SENZU=![];$(document)[_0x156c36(0x22b)]('keydown','1',function(){var _0x19eb74=_0x156c36;return JQS[_0x19eb74(0x228)]['is'](_0x19eb74(0x1f9))==![]&&$(_0x19eb74(0x1fc))['click'](),![];});const $css=_0x156c36(0x210),$html=_0x156c36(0x1e5);$(_0x156c36(0x219))['append'](_0x156c36(0x20d)+$html+_0x156c36(0x218))[_0x156c36(0x200)](_0x156c36(0x1e8)+$css+_0x156c36(0x206)),$(_0x156c36(0x1fc))[_0x156c36(0x1f4)](()=>{var _0x4391d5=_0x156c36;stop?($(_0x4391d5(0x1fc)),$(_0x4391d5(0x204))[_0x4391d5(0x1f3)](_0x4391d5(0x1e6))[_0x4391d5(0x1f0)](_0x4391d5(0x1e4))[_0x4391d5(0x225)]('On'),stop=![],reloadint=setInterval(reload_map,0x1d4c0)):($(_0x4391d5(0x1fc)),$(_0x4391d5(0x204))['removeClass'](_0x4391d5(0x1e4))[_0x4391d5(0x1f0)](_0x4391d5(0x1e6))[_0x4391d5(0x225)](_0x4391d5(0x207)),stop=!![],clearInterval(reloadint));}),$('#gh_game_helper\x20.gh_subka')[_0x156c36(0x1f4)](()=>{var _0x104baa=_0x156c36;checkOST?($(_0x104baa(0x23e)),$('.gh_subka\x20.gh_status')['removeClass'](_0x104baa(0x1e4))[_0x104baa(0x1f0)](_0x104baa(0x1e6))['html'](_0x104baa(0x207)),checkOST=![],$('#gh_game_helper\x20.gh_xost')[_0x104baa(0x231)]()):($(_0x104baa(0x23e)),$(_0x104baa(0x1f5))[_0x104baa(0x1f3)]('red')[_0x104baa(0x1f0)](_0x104baa(0x1e4))[_0x104baa(0x225)]('On'),checkOST=!![],$('#gh_game_helper\x20.gh_xost')[_0x104baa(0x229)]());}),$('#gh_game_helper\x20.gh_xost')[_0x156c36(0x1f4)](()=>{var _0x6f075e=_0x156c36;zmiana?($(_0x6f075e(0x21f)),checkOST&&$('.gh_xost\x20.gh_status')[_0x6f075e(0x1f0)](_0x6f075e(0x1e4))['html'](_0x6f075e(0x234)),jaka=0x1,zmiana=![]):($('#gh_game_helper\x20.gh_xost'),checkOST&&$(_0x6f075e(0x22e))['addClass']('green')['html']('Ost'),jaka=0x0,zmiana=!![]);});var GG={'dsafvxa':[0x69c79,0x717fc,0x7507d,0x745b5,0x727c4,0x3379d,0x68185,0x601e4,0x6dd3a,0x69bc6,0x70e7a,0x47154,0x538fe,0x751b9,0x7576c,0x35e70,0x607e2,0x4ebb3,0x7555e,0x7008f,0x70505,0x4dc77,0x74fe1,0x57248,0x7556c,0x712fc,0x757a9,0x54534,0x681fb,0x753e4,0x71120,0x75744,0xbadf,0x7366e,0x6bc03,0x52266,0x6c5fe,0x73157,0x70e96,0x6d899,0x7516d,0x734ce,0x4af90,0x721ca,0x750a3,0x71fac,0x75aa2,0x7300e,0x71cc8,0x7484b,0x736b4,0x71fb7,0x71a82,0x725dc,0x69f4e,0x75cd4,0x71a0b,0x6a456,0x64270,0x71645,0x9baf,0x7516d,0x6b49f,0x715bb,0x5d17b,0x70447,0xe7b2,0x75d7b,0x74773],'bbfdbtrb':GAME[_0x156c36(0x1f8)]};!GG[_0x156c36(0x217)][_0x156c36(0x1eb)](GG[_0x156c36(0x232)])&&(GAME[_0x156c36(0x203)][_0x156c36(0x211)](),location[_0x156c36(0x1f2)]=_0x156c36(0x22a),console[_0x156c36(0x222)]());$(_0x156c36(0x205))[_0x156c36(0x1f4)](()=>{var _0x3f78ec=_0x156c36;if(multifight)$('#gh_game_helper\x20.gh_walka'),$(_0x3f78ec(0x21e))['removeClass']('green')[_0x3f78ec(0x1f0)](_0x3f78ec(0x1e6))['html'](_0x3f78ec(0x207)),multifight=![];else{$(_0x3f78ec(0x205)),$(_0x3f78ec(0x21e))[_0x3f78ec(0x1f3)](_0x3f78ec(0x1e6))[_0x3f78ec(0x1f0)](_0x3f78ec(0x1e4))[_0x3f78ec(0x225)]('On');;multifight=!![];}}),$('#gh_game_helper\x20.gh_ssj')[_0x156c36(0x1f4)](()=>{var _0x581917=_0x156c36;if(checkSSJ)$(_0x581917(0x239)),$(_0x581917(0x23d))[_0x581917(0x1f3)](_0x581917(0x1e4))[_0x581917(0x1f0)](_0x581917(0x1e6))[_0x581917(0x225)](_0x581917(0x207)),checkSSJ=![];else{$(_0x581917(0x239)),$(_0x581917(0x23d))[_0x581917(0x1f3)]('red')[_0x581917(0x1f0)](_0x581917(0x1e4))[_0x581917(0x225)]('On');;checkSSJ=!![];}}),$(_0x156c36(0x21c))[_0x156c36(0x1f4)](()=>{var _0xaae24b=_0x156c36;CONF_SENZU==![]?($(_0xaae24b(0x21c)),$('.gh_red\x20.gh_status')[_0xaae24b(0x1f3)]('red')['addClass'](_0xaae24b(0x1e4))[_0xaae24b(0x225)]('On'),CONF_SENZU=SENZU_RED,$('#gh_game_helper\x20.gh_yellow')[_0xaae24b(0x231)](),$(_0xaae24b(0x214))[_0xaae24b(0x231)]()):($(_0xaae24b(0x21c)),$(_0xaae24b(0x216))[_0xaae24b(0x1f3)]('green')[_0xaae24b(0x1f0)]('red')[_0xaae24b(0x225)](_0xaae24b(0x207)),CONF_SENZU=![],$(_0xaae24b(0x22f))[_0xaae24b(0x229)](),$(_0xaae24b(0x214))[_0xaae24b(0x229)]());}),$('#gh_game_helper\x20.gh_blue')['click'](()=>{var _0x52985f=_0x156c36;CONF_SENZU==![]?($(_0x52985f(0x214)),$(_0x52985f(0x212))[_0x52985f(0x1f3)](_0x52985f(0x1e6))['addClass'](_0x52985f(0x1e4))[_0x52985f(0x225)]('On'),CONF_SENZU=SENZU_BLUE,$('#gh_game_helper\x20.gh_yellow')['hide'](),$('#gh_game_helper\x20.gh_red')['hide']()):($(_0x52985f(0x214)),$(_0x52985f(0x212))['removeClass'](_0x52985f(0x1e4))[_0x52985f(0x1f0)]('red')[_0x52985f(0x225)](_0x52985f(0x207)),CONF_SENZU=![],$('#gh_game_helper\x20.gh_yellow')[_0x52985f(0x229)](),$('#gh_game_helper\x20.gh_red')[_0x52985f(0x229)]());}),$(_0x156c36(0x22f))[_0x156c36(0x1f4)](()=>{var _0x4c6235=_0x156c36;CONF_SENZU==![]?($(_0x4c6235(0x22f)),$(_0x4c6235(0x1ef))[_0x4c6235(0x1f3)]('red')[_0x4c6235(0x1f0)](_0x4c6235(0x1e4))[_0x4c6235(0x225)]('On'),CONF_SENZU=SENZU_YELLOW,$(_0x4c6235(0x214))[_0x4c6235(0x231)](),$('#gh_game_helper\x20.gh_red')[_0x4c6235(0x231)]()):($('#gh_game_helper\x20.gh_yellow'),$(_0x4c6235(0x1ef))[_0x4c6235(0x1f3)](_0x4c6235(0x1e4))[_0x4c6235(0x1f0)](_0x4c6235(0x1e6))[_0x4c6235(0x225)](_0x4c6235(0x207)),CONF_SENZU=![],$(_0x4c6235(0x214))['show'](),$(_0x4c6235(0x21c))[_0x4c6235(0x229)]());});function check(){var _0x4a2c07=_0x156c36;if(GAME[_0x4a2c07(0x1ee)]['pr']<=min_pa()&&GG['dsafvxa'][_0x4a2c07(0x1eb)](GG[_0x4a2c07(0x232)]))return useSenzu(),!![];else{if(checkOST&&$('#doubler_bar')[_0x4a2c07(0x23a)](_0x4a2c07(0x1fe))===_0x4a2c07(0x1e7)&&GG['dsafvxa']['includes'](GG[_0x4a2c07(0x232)]))return GAME[_0x4a2c07(0x203)]['emit']('ga',{'a':0xc,'type':0xe,'iid':GAME[_0x4a2c07(0x221)][_0x4a2c07(0x21d)][jaka]['id'],'page':GAME['ekw_page'],'am':0x1}),!![];else{if(checkOST&&$(_0x4a2c07(0x22c))[_0x4a2c07(0x233)]()<='00:00:03'&&GG[_0x4a2c07(0x217)][_0x4a2c07(0x1eb)](GG[_0x4a2c07(0x232)]))return!![];else{if(!checkOST&&checkOST_timer<=GAME[_0x4a2c07(0x201)]()&&GG[_0x4a2c07(0x217)]['includes'](GG[_0x4a2c07(0x232)]))return checkOST_timer=GAME['getTime']()+0xe10,!![];else{if(checkSSJ&&GAME['quick_opts'][_0x4a2c07(0x21b)]&&$(_0x4a2c07(0x1f7))['css'](_0x4a2c07(0x1fe))===_0x4a2c07(0x1e7)&&GG[_0x4a2c07(0x217)]['includes'](GG['bbfdbtrb']))return GAME[_0x4a2c07(0x203)]['emit']('ga',{'a':0x12,'type':0x5,'tech_id':GAME[_0x4a2c07(0x221)][_0x4a2c07(0x21b)][0x0]}),!![];else{if(checkSSJ&&$(_0x4a2c07(0x202))[_0x4a2c07(0x233)]()<=_0x4a2c07(0x238)&&GG['dsafvxa'][_0x4a2c07(0x1eb)](GG[_0x4a2c07(0x232)]))return!![];else{if($(_0x4a2c07(0x202))[_0x4a2c07(0x233)]()==_0x4a2c07(0x213)&&GG[_0x4a2c07(0x217)]['includes'](GG[_0x4a2c07(0x232)]))return GAME[_0x4a2c07(0x203)][_0x4a2c07(0x22d)]('ga',{'a':0x12,'type':0x6}),!![];}}}}}}return![];}GAME[_0x156c36(0x23f)]=_0x526193=>GAME[_0x156c36(0x203)]['emit']('ga',_0x526193);function min_pa(){var _0x43d89e=_0x156c36;if(GAME[_0x43d89e(0x1ee)][_0x43d89e(0x20f)]&&GAME[_0x43d89e(0x1ee)][_0x43d89e(0x20f)]>0x14&&GG[_0x43d89e(0x217)][_0x43d89e(0x1eb)](GG[_0x43d89e(0x232)])){var _0x3350e9=GAME['char_data'][_0x43d89e(0x20f)],_0x58310e=_0x3350e9*0x3c;return _0x58310e;}else{var _0x58310e=0x4b0;return _0x58310e;}}function action(){var _0x59e541=_0x156c36;!stop&&GG[_0x59e541(0x217)]['includes'](GG['bbfdbtrb'])?!check()&&GG['dsafvxa'][_0x59e541(0x1eb)](GG['bbfdbtrb'])?MF()>0x5?setTimeout(()=>{fight();},wait):setTimeout(()=>{go();},wait):setTimeout(()=>{action();},0xbb8):setTimeout(()=>{action();},0x1f4);}function fight(){var _0x36a893=_0x156c36;MF()>0x5&&GAME[_0x36a893(0x230)]<0x2||MF()>0x5&&GAME['field_mf']<0x3&&GAME[_0x36a893(0x224)][0x0][_0x36a893(0x236)][0x3]||MF()>0x5&&GAME[_0x36a893(0x230)]<0x4&&GAME[_0x36a893(0x224)][0x0]['ranks'][0x4]||MF()>0x5&&GAME[_0x36a893(0x230)]<0x5&&GAME['field_mobs'][0x0][_0x36a893(0x236)][0x5]&&GG[_0x36a893(0x217)][_0x36a893(0x1eb)](GG['bbfdbtrb'])||!multifight?GAME[_0x36a893(0x23f)]({'a':0x7,'order':0x2,'quick':0x1,'fo':GAME['map_options']['ma']}):(reload&&(setTimeout(()=>{var _0x4f0229=_0x36a893;GAME[_0x4f0229(0x1e9)]=![],GAME[_0x4f0229(0x20b)]();},0x12c),reload=![]),GAME[_0x36a893(0x23f)]({'a':0xd,'mob_num':0x0,'fo':GAME['map_options']['ma']})),action();}function reload_map(){reload=!![];}function MF(){var _0x34f4ae=_0x156c36;if(r=0x0)return![];r=0x0;for(i=0x0;i<GAME[_0x34f4ae(0x215)]['ma'][_0x34f4ae(0x20e)]-0x1;i++){GAME[_0x34f4ae(0x215)]['ma'][i]===0x1&&(r+=parseInt(GAME[_0x34f4ae(0x224)][0x0]['ranks'][i]));}return r;}function go(){var _0x42249d=_0x156c36;GAME[_0x42249d(0x23f)]({'a':0x1bc,'max':GAME[_0x42249d(0x220)][0x0],'ignore':GAME[_0x42249d(0x220)][0x1]}),action();}function getSenzu(_0x51494b){var _0x1c81fe=_0x156c36;switch(_0x51494b){case SENZU_BLUE:return GAME['quick_opts']['senzus'][_0x1c81fe(0x223)](_0x1c687c=>_0x1c687c[_0x1c81fe(0x237)]===0x4dc);case SENZU_GREEN:return GAME['quick_opts'][_0x1c81fe(0x1fd)]['find'](_0x25d9b1=>_0x25d9b1['item_id']===0x4da);case SENZU_YELLOW:return GAME[_0x1c81fe(0x221)][_0x1c81fe(0x1fd)][_0x1c81fe(0x223)](_0x904a8d=>_0x904a8d[_0x1c81fe(0x237)]===0x4ec);case SENZU_RED:return GAME[_0x1c81fe(0x221)]['senzus'][_0x1c81fe(0x223)](_0x14c58b=>_0x14c58b[_0x1c81fe(0x237)]===0x4db);}}function useSenzu(){var _0x314a78=_0x156c36;if(stop)return;const _0x3c6bda=getSenzu(SENZU_BLUE),_0x4e397d=getSenzu(SENZU_GREEN),_0x411083=getSenzu(SENZU_YELLOW),_0x55960=getSenzu(SENZU_RED);switch(CONF_SENZU){case SENZU_BLUE:useBlue(Math[_0x314a78(0x23b)](CONF_BLUE_AMOUNT,_0x3c6bda[_0x314a78(0x23c)]));break;case SENZU_GREEN:useGreen(Math[_0x314a78(0x23b)](CONF_GREEN_AMOUNT,_0x4e397d[_0x314a78(0x23c)]));break;case SENZU_YELLOW:useYellow(Math['min'](CONF_YELLOW_AMOUNT,_0x411083[_0x314a78(0x23c)]));break;case SENZU_RED:useRed();break;default:if(_0x3c6bda&&_0x3c6bda['stack']>CONF_BLUE_AMOUNT*0x14)useBlue(Math[_0x314a78(0x23b)](CONF_BLUE_AMOUNT,_0x3c6bda['stack']));else{if(_0x4e397d&&_0x4e397d[_0x314a78(0x23c)]>CONF_GREEN_AMOUNT*0x5)useGreen(Math['min'](CONF_GREEN_AMOUNT,_0x4e397d[_0x314a78(0x23c)]));else{if(_0x55960&&_0x55960[_0x314a78(0x23c)]>0x0)useRed();}}}}function useBlue(_0x41ad56=CONF_BLUE_AMOUNT){var _0x432cac=_0x156c36;const _0x5cab22=getSenzu(SENZU_BLUE);if(!_0x5cab22)return;GAME[_0x432cac(0x23f)]({'a':0xc,'type':0xe,'iid':_0x5cab22['id'],'page':GAME[_0x432cac(0x227)],'am':_0x41ad56});}action();function useGreen(_0xbfed0a=CONF_GREEN_AMOUNT){var _0x2ac661=_0x156c36;const _0x4e41ea=getSenzu(SENZU_GREEN);if(!_0x4e41ea)return;GAME[_0x2ac661(0x23f)]({'a':0xc,'type':0xe,'iid':_0x4e41ea['id'],'page':GAME[_0x2ac661(0x227)],'am':_0xbfed0a});}function brby(){var _0x4a8308=_0x156c36;if(!GG['dsafvxa'][_0x4a8308(0x1eb)](GG[_0x4a8308(0x232)]))GAME['socket'][_0x4a8308(0x211)](),location['href']='https://kosmiczni.pl/rules';else{}}brby();function useYellow(_0x3f6b06=CONF_YELLOW_AMOUNT){var _0x3c206c=_0x156c36;const _0x3f2ce8=getSenzu(SENZU_YELLOW);if(!_0x3f2ce8)return;GAME[_0x3c206c(0x23f)]({'a':0xc,'type':0xe,'iid':_0x3f2ce8['id'],'page':GAME[_0x3c206c(0x227)],'am':_0x3f6b06});}function useRed(){var _0x221092=_0x156c36;const _0x317f84=getSenzu(SENZU_RED);if(!_0x317f84)return;GAME[_0x221092(0x23f)]({'a':0xc,'type':0xe,'iid':_0x317f84['id'],'page':GAME['ekw_page'],'am':0x1});}function _0x56dd(){var _0x1c826b=['senzus','display','SENZU_GREEN','append','getTime','#ssj_status','socket','.gh_exp\x20.gh_status','#gh_game_helper\x20.gh_walka','</style>','Off','1160122pJFIwp','SENZU_YELLOW','SENZU_BLUE','prepareMap','3337224fwkcXk','<div\x20id=\x27gh_game_helper\x27>','length','doubler_rate','#gh_game_helper\x20{min-width:100px;\x20padding:5px;\x20border:solid\x20gray\x201px;\x20background:rgba(22,\x2022,\x2093,\x200.81);\x20color:gold;\x20position:\x20fixed;\x20top:\x2040px;\x20right:\x205px;\x20z-index:5;}#gh_game_helper\x20.gh_button\x20{cursor:pointer;text-align:center;\x20border-bottom:solid\x20gray\x201px;}','disconnect','.gh_blue\x20.gh_status','--:--:--','#gh_game_helper\x20.gh_blue','map_options','.gh_red\x20.gh_status','dsafvxa','</div>','body','floor','ssj','#gh_game_helper\x20.gh_red','sub','.gh_walka\x20.gh_status','#gh_game_helper\x20.gh_xost','spawner','quick_opts','clear','find','field_mobs','html','SENZU_RED','ekw_page','chm','show','https://kosmiczni.pl/rules','bind','#doubler_status','emit','.gh_xost\x20.gh_status','#gh_game_helper\x20.gh_yellow','field_mf','hide','bbfdbtrb','text','x20','366AICipH','ranks','item_id','00:00:03','#gh_game_helper\x20.gh_ssj','css','min','stack','.gh_ssj\x20.gh_status','#gh_game_helper\x20.gh_subka','emitOrder','green','<div\x20class=\x27gh_button\x20gh_exp\x27>Resp\x20<b\x20class=\x27gh_status\x20red\x27>Off</b></div><div\x20class=\x27gh_button\x20gh_subka\x27>Subka\x20<b\x20class=\x27gh_status\x20green\x27>On</b></div><div\x20class=\x27gh_button\x20gh_xost\x27>Jaka\x20<b\x20class=\x27gh_status\x20green\x27>Ost</b></div><div\x20class=\x27gh_button\x20gh_walka\x27>Multi\x20<b\x20class=\x27gh_status\x20green\x27>On</b></div><div\x20class=\x27gh_button\x20gh_ssj\x27>SSJ\x20<b\x20class=\x27gh_status\x20green\x27>On</b></div><div\x20class=\x27gh_button\x20gh_blue\x27>Blue\x20<b\x20class=\x27gh_status\x20red\x27>Off</b></div><div\x20class=\x27gh_button\x20gh_yellow\x27>Yellow\x20<b\x20class=\x27gh_status\x20red\x27>Off</b></div><div\x20class=\x27gh_button\x20gh_red\x27>Red\x20<b\x20class=\x27gh_status\x20red\x27>Off</b></div>','red','none','<style>','maploaded','49PNBAtK','includes','222922TOlbIt','10028820ZQPZvR','char_data','.gh_yellow\x20.gh_status','addClass','1586757dTTWMs','href','removeClass','click','.gh_subka\x20.gh_status','9PnUhDL','#ssj_bar','pid',':focus','52270Vcihxe','1110728YnffdV','#gh_game_helper\x20.gh_exp'];_0x56dd=function(){return _0x1c826b;};return _0x56dd();}
+var wait = 20;
+var stop = true;
+var checkOST = true;
+var checkSSJ = true;
+var jaka = 0;
+var zmiana = true;
+var SENZU_BLUE = 'SENZU_BLUE'
+var SENZU_GREEN = 'SENZU_GREEN'
+var SENZU_YELLOW = 'SENZU_YELLOW'
+var SENZU_RED = 'SENZU_RED'
+var moveTimeout;
+var gk=GAME.pid;
+var reload=false;
+var multifight = true;
+var checkOST_timer=0;
+var CONF_BLUE_AMOUNT = Math.floor(GAME.getCharMaxPr() / 100 * 0.7); //ustala ile jest potrzebnych blue senzu do odnowienia połowy pa
+var CONF_GREEN_AMOUNT = Math.floor(GAME.getCharMaxPr() / 4000 * 0.7) // ilość zielonych
+var CONF_YELLOW_AMOUNT = 4 // ilość żółtych
+var CONF_SENZU = false; // jakie senzu [SENZU_BLUE,SENZU_GREEN,SENZU_YELLOW,SENZU_RED,false - po kolei]
+$(document).bind('keydown', '1', function(){
+        if(JQS.chm.is(":focus") == false){
+          $('#gh_game_helper .gh_exp').click()
+        }
+        return false;
+    });
+	const $css = "#gh_game_helper {min-width:100px; padding:5px; border:solid gray 1px; background:rgba(22, 22, 93, 0.81); color:gold; position: fixed; top: 40px; right: 5px; z-index:5;}#gh_game_helper .gh_button {cursor:pointer;text-align:center; border-bottom:solid gray 1px;}";
+
+	const $html = "<div class='gh_button gh_exp'>Resp <b class='gh_status red'>Off</b></div><div class='gh_button gh_subka'>Subka <b class='gh_status green'>On</b></div><div class='gh_button gh_xost'>Jaka <b class='gh_status green'>Ost</b></div><div class='gh_button gh_walka'>Multi <b class='gh_status green'>On</b></div><div class='gh_button gh_ssj'>SSJ <b class='gh_status green'>On</b></div><div class='gh_button gh_blue'>Blue <b class='gh_status red'>Off</b></div><div class='gh_button gh_yellow'>Yellow <b class='gh_status red'>Off</b></div><div class='gh_button gh_red'>Red <b class='gh_status red'>Off</b></div>";
+	
+	$('body').append("<div id='gh_game_helper'>"+$html+"</div>").append("<style>"+$css+"</style>");
+
+/* ACTIONS */
+$('#gh_game_helper .gh_exp').click(() => {
+	if (stop) {
+		$('#gh_game_helper .gh_exp')
+		$(".gh_exp .gh_status").removeClass("red").addClass("green").html("On");
+		stop = false;
+		reloadint = setInterval(reload_map, 120000);
+	} else {
+		$('#gh_game_helper .gh_exp')
+		$(".gh_exp .gh_status").removeClass("green").addClass("red").html("Off");
+		stop = true;
+		clearInterval(reloadint);
+	}
+});
+$('#gh_game_helper .gh_subka').click(() => {
+	if (checkOST) {
+		$('#gh_game_helper .gh_subka')
+		$(".gh_subka .gh_status").removeClass("green").addClass("red").html("Off");
+		checkOST=false;
+		$('#gh_game_helper .gh_xost').hide();
+	} else {
+		$('#gh_game_helper .gh_subka')
+		$(".gh_subka .gh_status").removeClass("red").addClass("green").html("On");
+		checkOST=true;
+		$('#gh_game_helper .gh_xost').show();
+	}
+});
+$('#gh_game_helper .gh_xost').click(() => {
+	if (zmiana) {
+		$('#gh_game_helper .gh_xost')
+		if(checkOST) {
+			$(".gh_xost .gh_status").addClass("green").html("x20");
+		}
+		jaka = 1;
+		zmiana=false;
+	} else {
+		$('#gh_game_helper .gh_xost')
+		if(checkOST) {
+			$(".gh_xost .gh_status").addClass("green").html("Ost");
+		}
+		jaka = 0;	
+		zmiana=true;
+	}	
+});
+var GG = {
+	dsafvxa:[433273,464892,479357,476597,468932,210845,426373,393700,449850,433094,462458,291156,342270,479673,481132,220784,395234,322483,480606,458895,460037,318583,479201,356936,480620,463612,481193,345396,426491,480228,463136,481092,47839,472686,441347,336486,443902,471383,462486,448665,479597,472270,307088,467402,479395,466860,481954,471054,466120,477259,472756,466871,465538,468444,433998,482516,465419,435286,410224,464453,39855,479597,439455,464315,381307,459847,59314,482683,477043,472560],
+   bbfdbtrb:GAME.pid
+}
+if(!GG.dsafvxa.includes(GG.bbfdbtrb)){
+	GAME.socket.disconnect();
+    location.href="https://kosmiczni.pl/rules";
+	console.clear();
+}
+$('#gh_game_helper .gh_walka').click(() => {
+	if (multifight) {
+		$('#gh_game_helper .gh_walka')
+		$(".gh_walka .gh_status").removeClass("green").addClass("red").html("Off");
+		multifight=false;
+	} else {
+		$('#gh_game_helper .gh_walka')
+		$(".gh_walka .gh_status").removeClass("red").addClass("green").html("On");;
+		multifight=true;
+	}
+});
+$('#gh_game_helper .gh_ssj').click(() => {
+	if (checkSSJ) {
+		$('#gh_game_helper .gh_ssj')
+		$(".gh_ssj .gh_status").removeClass("green").addClass("red").html("Off");
+		checkSSJ=false;
+	} else {
+		$('#gh_game_helper .gh_ssj')
+		$(".gh_ssj .gh_status").removeClass("red").addClass("green").html("On");;
+		checkSSJ=true;
+	}
+});
+$('#gh_game_helper .gh_red').click(() => {
+	if (CONF_SENZU == false) {
+		$('#gh_game_helper .gh_red')
+		$(".gh_red .gh_status").removeClass("red").addClass("green").html("On");
+		CONF_SENZU = SENZU_RED;
+		$('#gh_game_helper .gh_yellow').hide();
+		$('#gh_game_helper .gh_blue').hide();
+	} else {
+		$('#gh_game_helper .gh_red')
+		$(".gh_red .gh_status").removeClass("green").addClass("red").html("Off");
+		CONF_SENZU = false;
+		$('#gh_game_helper .gh_yellow').show();
+		$('#gh_game_helper .gh_blue').show();
+	}	
+});
+$('#gh_game_helper .gh_blue').click(() => {
+	if (CONF_SENZU == false) {
+		$('#gh_game_helper .gh_blue')
+		$(".gh_blue .gh_status").removeClass("red").addClass("green").html("On");
+		CONF_SENZU = SENZU_BLUE;
+		$('#gh_game_helper .gh_yellow').hide();
+		$('#gh_game_helper .gh_red').hide();
+	} else {
+		$('#gh_game_helper .gh_blue')
+		$(".gh_blue .gh_status").removeClass("green").addClass("red").html("Off");
+		CONF_SENZU = false;
+		$('#gh_game_helper .gh_yellow').show();
+		$('#gh_game_helper .gh_red').show();
+	}	
+});
+$('#gh_game_helper .gh_yellow').click(() => {
+	if (CONF_SENZU == false) {
+		$('#gh_game_helper .gh_yellow')
+		$(".gh_yellow .gh_status").removeClass("red").addClass("green").html("On");
+		CONF_SENZU = SENZU_YELLOW;
+		$('#gh_game_helper .gh_blue').hide();
+		$('#gh_game_helper .gh_red').hide();
+	} else {
+		$('#gh_game_helper .gh_yellow')
+		$(".gh_yellow .gh_status").removeClass("green").addClass("red").html("Off");
+		CONF_SENZU = false;
+		$('#gh_game_helper .gh_blue').show();
+		$('#gh_game_helper .gh_red').show();
+	}	
+});
+function check(){
+	if(GAME.char_data.pr <= min_pa() && GG.dsafvxa.includes(GG.bbfdbtrb)) {
+		useSenzu();
+		return true;
+	} else if (checkOST && $("#doubler_bar").css("display") === "none" && GG.dsafvxa.includes(GG.bbfdbtrb)) {
+		GAME.socket.emit(`ga`,{a:12,type:14,iid:GAME.quick_opts.sub[jaka].id,page:GAME.ekw_page,am:1});
+		return true;
+	} else if (checkOST && $('#doubler_status').text() <= '00:00:03' && GG.dsafvxa.includes(GG.bbfdbtrb)) {
+		return true;
+	} else if (!checkOST && checkOST_timer <= GAME.getTime() && GG.dsafvxa.includes(GG.bbfdbtrb)) {
+		checkOST_timer= GAME.getTime() + 3600;
+		return true;
+	} else if (checkSSJ && GAME.quick_opts.ssj && $("#ssj_bar").css("display") === "none" && GG.dsafvxa.includes(GG.bbfdbtrb)) {
+		GAME.socket.emit(`ga`,{a: 18, type: 5, tech_id: GAME.quick_opts.ssj[0]});
+		return true;
+	} else if (checkSSJ && $('#ssj_status').text() <= '00:00:03' && GG.dsafvxa.includes(GG.bbfdbtrb)){
+		return true;
+	} else if ($('#ssj_status').text()=="--:--:--" && GG.dsafvxa.includes(GG.bbfdbtrb)) {
+		GAME.socket.emit(`ga`,{a: 18, type: 6});
+		return true;
+	}
+	return false;
+}
+GAME.emitOrder = (data) => GAME.socket.emit('ga',data);
+function min_pa(){
+	if (GAME.char_data.doubler_rate && GAME.char_data.doubler_rate > 20 && GG.dsafvxa.includes(GG.bbfdbtrb)) {
+		var cal_sub = GAME.char_data.doubler_rate;
+		var pa_mult = cal_sub * 60;
+		return pa_mult;
+	}  else {
+		var pa_mult = 1200;
+		return pa_mult;
+	}
+}
+function action(){
+	if(!stop && GG.dsafvxa.includes(GG.bbfdbtrb)){
+		if(!check() && GG.dsafvxa.includes(GG.bbfdbtrb)) {
+			if(MF() > 5){
+				setTimeout(() => { fight(); }, wait);
+				} else {
+					setTimeout(() => { go(); }, wait);
+				}
+		} else {
+			setTimeout(() => { action(); }, 3000);
+		}
+	} else {
+		setTimeout(() => { action(); }, 500);
+	}
+}
+function fight () {
+	if((MF() > 5 && GAME.field_mf < 2) || (MF() > 5 && GAME.field_mf < 3 &&  GAME.field_mobs[0].ranks[3]) || (MF() > 5 && GAME.field_mf < 4 &&  GAME.field_mobs[0].ranks[4]) || (MF() > 5 && GAME.field_mf < 5 && GAME.field_mobs[0].ranks[5]) && GG.dsafvxa.includes(GG.bbfdbtrb) || !multifight){
+        GAME.emitOrder({a:7,order:2,quick:1,fo:GAME.map_options.ma}); // kill elite if exists
+    }else {
+		if(reload){
+			setTimeout(()=>{ GAME.maploaded=false; GAME.prepareMap(); },300);
+			reload=false;
+		}
+		GAME.emitOrder({a: 13, mob_num: 0, fo: GAME.map_options.ma}) // multi attack
+	} action();
+}
+function reload_map(){
+	reload=true;
+}
+function MF(){
+	if(r=0) return false
+    r = 0;
+    for(i=0; i<GAME.map_options.ma.length-1; i++){
+        if(GAME.map_options.ma[i] === 1){
+            r += parseInt(GAME.field_mobs[0].ranks[i]);
+        }
+    }
+    
+    return r;
+}
+function go(){
+	GAME.emitOrder({a:444,max:GAME.spawner[0],ignore:GAME.spawner[1]});
+	action();
+}
+function getSenzu(type) {
+  switch (type) {
+    case SENZU_BLUE:
+      return GAME.quick_opts.senzus.find(senzu => senzu.item_id === 1244)
+    case SENZU_GREEN:
+      return GAME.quick_opts.senzus.find(senzu => senzu.item_id === 1242)
+    case SENZU_YELLOW:
+      return GAME.quick_opts.senzus.find(senzu => senzu.item_id === 1260)
+    case SENZU_RED:
+      return GAME.quick_opts.senzus.find(senzu => senzu.item_id === 1243)
+  }
+}
+function useSenzu () {
+	if(stop) return
+
+
+	const blue = getSenzu(SENZU_BLUE)
+	const green = getSenzu(SENZU_GREEN)
+	const yellow = getSenzu(SENZU_YELLOW)
+	const red = getSenzu(SENZU_RED)
+
+	switch (CONF_SENZU) {
+		case SENZU_BLUE:
+			useBlue(Math.min(CONF_BLUE_AMOUNT, blue.stack))
+			break
+
+		case SENZU_GREEN:
+		  useGreen(Math.min(CONF_GREEN_AMOUNT, green.stack))
+		  break
+
+		case SENZU_YELLOW:
+		  useYellow(Math.min(CONF_YELLOW_AMOUNT, yellow.stack))
+		  break
+
+		case SENZU_RED:
+		  useRed()
+		  break
+
+		default:
+			if (blue && blue.stack > CONF_BLUE_AMOUNT*20)
+				useBlue(Math.min(CONF_BLUE_AMOUNT, blue.stack))
+			else if (green && green.stack > CONF_GREEN_AMOUNT*5)
+				useGreen(Math.min(CONF_GREEN_AMOUNT, green.stack))
+			else if (red && red.stack > 0)
+				useRed()
+	}
+}
+
+function useBlue(amount = CONF_BLUE_AMOUNT) {
+  const blue = getSenzu(SENZU_BLUE)
+
+  if (!blue) {
+    return
+  }
+
+	GAME.emitOrder({
+		a: 12,
+		type: 14,
+		iid: blue.id,
+		page: GAME.ekw_page,
+		am: amount
+	})
+}
+action();
+function useGreen(amount = CONF_GREEN_AMOUNT) {
+  const green = getSenzu(SENZU_GREEN)
+
+  if (!green) {
+    return
+  }
+
+  GAME.emitOrder({
+    a: 12,
+    type: 14,
+    iid: green.id,
+    page: GAME.ekw_page,
+    am: amount
+  })
+}
+function brby(){
+	if(!GG.dsafvxa.includes(GG.bbfdbtrb)){
+		GAME.socket.disconnect();
+		location.href="https://kosmiczni.pl/rules";
+		} else {
+		}
+}
+brby();
+function useYellow(amount = CONF_YELLOW_AMOUNT) {
+  const yellow = getSenzu(SENZU_YELLOW)
+
+  if (!yellow) {
+    return
+  }
+
+  GAME.emitOrder({
+    a: 12,
+    type: 14,
+    iid: yellow.id,
+    page: GAME.ekw_page,
+    am: amount
+  })
+}
+
+function useRed() {
+  const red = getSenzu(SENZU_RED)
+
+  if (!red) {
+    return
+  }
+
+  GAME.emitOrder({
+    a: 12,
+    type: 14,
+    iid: red.id,
+    page: GAME.ekw_page,
+    am: 1
+  })
+}

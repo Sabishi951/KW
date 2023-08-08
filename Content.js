@@ -416,4 +416,4 @@ GAME.parsePlayerShadow = function(data,pvp_master){
 	}
 	return res;
 }
-GAME.komunikat("Dla chętnych wersja z odpalaniem błogo i kodami podczas expa do dokupienia");
+GAME.komunikat("Proszę zgłaszać mi wszystkie wywalenia z gry tzn. przeniesienie do regulaminu kw");

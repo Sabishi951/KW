@@ -416,4 +416,4 @@ GAME.parsePlayerShadow = function(data,pvp_master){
 	}
 	return res;
 }
-GAME.komunikat("Proszę zgłaszać mi wszystkie wywalenia z gry tzn. przeniesienie do regulaminu kw");
+GAME.komunikat("Dopóki ten komunikat nie wyskoczy podczas wyboru postaci po zalogowaniu lub odświeżeniu strony nie wchodzić na postać bo może wywalić podczas odpalania skryptu pvm i pvp.");

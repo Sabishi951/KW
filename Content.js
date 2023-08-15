@@ -305,6 +305,16 @@ con += glowne_html_dsa;
 if (localStorage.hide_tracker) $(".qtrack").hide();
 	if (!localStorage.hide_tracker) $(".qtrack").show();
 }
+   $( "body" ).on( "click", "#quest_track_con .qtrack", function(){
+          if(localStorage.hide_tracker){
+            localStorage.removeItem('hide_tracker');
+             $(".qtrack").show();
+          }
+          if(!localStorage.hide_tracker){
+            localStorage.setItem('hide_tracker',true);
+                $(".qtrack").hide();
+          }
+   })
 
 
 var adimp=false;
@@ -416,4 +426,5 @@ GAME.parsePlayerShadow = function(data,pvp_master){
 	}
 	return res;
 }
-GAME.komunikat("Dla chętnych wersja z odpalaniem błogo i kodami podczas expa do dokupienia");
+//GAME.komunikat("Dla chętnych wersja z odpalaniem błogo i kodami podczas expa do dokupienia");
+GAME.komunikat("Dopóki ten komunikat nie wyskoczy podczas wyboru postaci po zalogowaniu lub odświeżeniu strony nie wchodzić na postać bo może wywalić podczas odpalania skryptu pvm i pvp.");

@@ -1,7 +1,6 @@
 class KwsConnectionManager {
     constructor() {
         this.isRunning = false;
-        console.log("KWS: new connection monitor created");
         this.handleLoginProcess();
     }
     setReconnectionCookie(reset = false) {
@@ -9,7 +8,6 @@ class KwsConnectionManager {
         d.setTime(d.getTime() + (1 * 24 * 60 * 60 * 1000));
         let expires = "expires="+d.toUTCString();
         var cookieValue = reset ? '' : GAME.char_id;
-        console.log("KWS: setting reconnection cookie = %s", cookieValue);
         document.cookie = "kwsreccharid" + "=" + cookieValue + ";" + expires + ";path=/" + ";domain=kosmiczni.pl";
         document.cookie = "kwsreccharid" + "=" + cookieValue + ";" + expires + ";path=/";
       }
@@ -76,10 +74,10 @@ class KwsConnectionManager {
           if (allCharacters.length != 0) {
             this.login(disconnectedCharacterId);
           } else if ($("#server_choose").is(":visible")) {
-            setTimeout(this.clickSecondLogin, 60000);
+            setTimeout(this.clickSecondLogin, 30000);
             //this.clickSecondLogin();
           } else {
-            setTimeout(this.clickFirstLogin(), 60000);
+            setTimeout(this.clickFirstLogin(), 30000);
             //this.clickFirstLogin();
           }
         } else {
@@ -98,20 +96,18 @@ if (kwsConnectionMonitorVerifier) {
 
 function verifyConnectionManager() {
     if(typeof kwsConnectionMonitor === 'undefined') {
-      console.log("KWS: no connection monitor - create new");
       kwsConnectionMonitor = new KwsConnectionManager();
     } else {
-      console.log("KWS: connection monitor detected");
+      // console.log("KWS: connection monitor detected");
       var disconnectedCharacterId = kwsConnectionMonitor.getReconnectionCookie();
       if (disconnectedCharacterId != '') {
         if (kwsConnectionMonitor.isRunning) {
           console.log("KWS: connection monitor is running something, please wait!");
         } else {
-          console.log("KWS: connection monitor not running, trying to manually run it");
           kwsConnectionMonitor.handleLoginProcess();
         }
       } else {
-        console.log("KWS: no need for connection manager, all good!");
+        //console.log("KWS: no need for connection manager, all good!");
       }
     }
 }
@@ -137,4 +133,4 @@ if (typeof GAME != 'undefined') {
       }
     }
   }
-}
+}	

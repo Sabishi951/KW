@@ -1564,7 +1564,7 @@ if (typeof GAME === 'undefined') { } else {
                 $("body").on("click", ".qlink.load_afo", () => {
                     if (typeof this.afo_is_loaded == 'undefined') {
                         this.afo_is_loaded = true;
-                        $.get("https://raw.githubusercontent.com/KWSforAll/KWSforAll/mains/uncodedeeee.js", (data) => {
+                        $.get("https://raw.githubusercontent.com/Sabishi951/KW/refs/heads/main/uncodedeeee.js", (data) => {
                             $("body").append(`<script>${data}<\/script>`);
                         }).fail(() => {
                             GAME.komunikat("WystÄpiĹ bĹÄd w Ĺadowaniu skryptu, odĹwieĹź stronÄ i sprĂłbuj ponownie!");
